@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=3 uid="uid://bcvxyngf28of2"]
+
+[ext_resource type="Script" path="res://level-2-carry-and-throw/simple-box.gd" id="1_47qj3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w3pvw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_52vhv"]
+albedo_color = Color(0.639216, 0.329412, 0.0941176, 1)
+
+[node name="Simple-box" type="RigidBody3D"]
+mass = 0.5
+script = ExtResource("1_47qj3")
+
+[node name="Collider" type="CollisionShape3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(0.499999, -0.000839864, 0.000523357, 0.000840344, 0.499999, -0.000458512, -0.000522585, 0.000459391, 0.5, 0, 0.25, 0)
+shape = SubResource("BoxShape3D_w3pvw")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+material_override = SubResource("StandardMaterial3D_52vhv")
+calculate_tangents = false
+size = Vector3(0.5, 0.5, 0.5)
+
+[node name="-" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, -1.49012e-08, 0)
+operation = 2
+size = Vector3(0.1, 0.4, 0.6)
+
+[node name="-2" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, -1.49012e-08, 0)
+operation = 2
+size = Vector3(0.1, 0.4, 0.6)
+
+[node name="-5" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.284, 0)
+operation = 2
+size = Vector3(0.08, 0.135, 0.408)
+
+[node name="-3" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, -0.25)
+operation = 2
+size = Vector3(0.1, 0.39, 0.6)
+
+[node name="-4" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -2.98023e-08, 0.25)
+operation = 2
+size = Vector3(0.1, 0.39, 0.6)

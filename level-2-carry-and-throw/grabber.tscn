@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cebuta1ujkgy1"]
+
+[ext_resource type="Script" path="res://level-2-carry-and-throw/grabber.gd" id="1_oaqco"]
+
+[node name="Grabber" type="Node3D"]
+script = ExtResource("1_oaqco")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+target_position = Vector3(0, 2, 0)

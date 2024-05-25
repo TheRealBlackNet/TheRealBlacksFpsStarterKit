@@ -1,5 +1,5 @@
 extends CharacterBody3D
-class_name Player2
+class_name Player1
 
 const SPEED:float = 5.0
 const JUMP_VELOCITY:float = 4.5
