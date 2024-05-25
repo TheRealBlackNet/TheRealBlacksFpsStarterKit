@@ -1,0 +1,96 @@
+[gd_scene load_steps=8 format=3 uid="uid://s54uo3bt8lqj"]
+
+[ext_resource type="Script" path="res://level-1-basicmovement/level-1.gd" id="1_kqmv7"]
+[ext_resource type="PackedScene" uid="uid://dnihg1nft58at" path="res://level-1-basicmovement/player.tscn" id="2_2ybsu"]
+[ext_resource type="Environment" uid="uid://7hx38rkladnu" path="res://res/all_level_environment.tres" id="2_jg3eh"]
+[ext_resource type="Material" uid="uid://beg3j5csv2c8w" path="res://res/tree_trunk_1.material" id="2_k63wa"]
+[ext_resource type="Material" uid="uid://lwyg6vt2ysy5" path="res://res/tree_leaf_1.material" id="3_0uorg"]
+[ext_resource type="Material" uid="uid://mwdotvqyuq1t" path="res://res/ground_1.material" id="4_7p0cn"]
+[ext_resource type="Material" uid="uid://qhgcwc8ww1ja" path="res://res/concrete_1.material" id="5_5hveo"]
+
+[node name="Level-1" type="Node3D"]
+script = ExtResource("1_kqmv7")
+
+[node name="Level" type="Node3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Level"]
+environment = ExtResource("2_jg3eh")
+
+[node name="Sun" type="DirectionalLight3D" parent="Level"]
+transform = Transform3D(0.846596, 0.411133, -0.338001, 0.473157, -0.290574, 0.831678, 0.243716, -0.864023, -0.44053, -6.46233, 0.38444, -6.52695)
+light_energy = 11.333
+shadow_enabled = true
+shadow_blur = 2.824
+
+[node name="TreeTrunk" type="CSGCylinder3D" parent="Level"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.80804, 1.33738, 6.57791)
+use_collision = true
+height = 2.72183
+material = ExtResource("2_k63wa")
+
+[node name="Leaf1" type="CSGCylinder3D" parent="Level/TreeTrunk"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.16341, 0)
+use_collision = true
+radius = 1.65
+height = 2.5
+sides = 11
+cone = true
+material = ExtResource("3_0uorg")
+
+[node name="Leaf2" type="CSGCylinder3D" parent="Level/TreeTrunk"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.26505, 0)
+use_collision = true
+radius = 1.173
+height = 1.936
+sides = 11
+cone = true
+material = ExtResource("3_0uorg")
+
+[node name="Leaf3" type="CSGCylinder3D" parent="Level/TreeTrunk"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.1011, 0)
+use_collision = true
+radius = 0.835
+height = 1.264
+sides = 11
+cone = true
+material = ExtResource("3_0uorg")
+
+[node name="ground" type="CSGBox3D" parent="Level"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+material_override = ExtResource("4_7p0cn")
+use_collision = true
+size = Vector3(20, 1, 20)
+
+[node name="Stones" type="Node3D" parent="Level"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.352145, 0, -7.07)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Level/Stones"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00271, -0.000328541)
+material_override = ExtResource("5_5hveo")
+use_collision = true
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Level/Stones"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.60449, 0.748813, -0.000328541)
+material_override = ExtResource("5_5hveo")
+use_collision = true
+radius = 1.04514
+height = 1.55718
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="Level/Stones"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.231389, 0.291491, 1.99127)
+material_override = ExtResource("5_5hveo")
+use_collision = true
+radius = 1.91581
+height = 0.653297
+
+[node name="CSGTorus3D" type="CSGTorus3D" parent="Level"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 7.49287, 1.4769, 0)
+use_collision = true
+inner_radius = 1.36483
+outer_radius = 2.12941
+sides = 16
+ring_sides = 8
+material = ExtResource("5_5hveo")
+
+[node name="Player" parent="." instance=ExtResource("2_2ybsu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.155965, 2.38419e-07, 0.152676)
