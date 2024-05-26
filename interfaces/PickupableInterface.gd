@@ -3,18 +3,27 @@ class_name PickupableInterface
 
 @onready var collider:CollisionShape3D = %Collider
 
+@export var fillingColor:FillableBox.FillingType = FillableBox.FillingType.Clear
+
+# a counter 
 var fellOutOfWorld:int = 0
+# used in animations to avoid to be a tween effected 
+# item to be picked up
+var canBeUsed:bool = true
 
 func pickedUp():
 	collider.disabled = true
+	canBeUsed = false
 	freeze = true
 
 func throwen():
 	collider.disabled = false
+	canBeUsed = true
 	freeze = false
 
 func dropped():
 	collider.disabled = false
+	canBeUsed = true
 	freeze = false
 
 func _physics_process(delta):

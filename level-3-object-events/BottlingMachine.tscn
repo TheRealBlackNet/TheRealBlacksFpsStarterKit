@@ -1,0 +1,62 @@
+[gd_scene load_steps=8 format=3 uid="uid://d2spo4c7ytft0"]
+
+[ext_resource type="Script" path="res://level-3-object-events/BottlingMachine.gd" id="1_patap"]
+[ext_resource type="PackedScene" uid="uid://tpphwpsjv3we" path="res://kenney_CC/conveyor-kit/conveyor-bars-stripe-side.glb" id="1_xiho0"]
+[ext_resource type="PackedScene" uid="uid://bswnellrctq23" path="res://kenney_CC/conveyor-kit/cover-stripe-window.glb" id="2_m1e4f"]
+[ext_resource type="PackedScene" uid="uid://bu6vcq5c3yps0" path="res://kenney_CC/conveyor-kit/conveyor-bars-stripe-fence.glb" id="3_1e57d"]
+[ext_resource type="PackedScene" uid="uid://805yjv5mvxdr" path="res://kenney_CC/conveyor-kit/arrow-basic.glb" id="4_44mdq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dpca0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_06rvu"]
+size = Vector3(1.4, 1.1, 1)
+
+[node name="BottlingMachine1" type="StaticBody3D"]
+script = ExtResource("1_patap")
+
+[node name="InputZone" type="Area3D" parent="."]
+unique_name_in_owner = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InputZone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 1)
+shape = SubResource("BoxShape3D_dpca0")
+
+[node name="PointInputSnap" type="Node3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 1.043)
+
+[node name="PointFilling" type="Node3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0)
+
+[node name="PointOutput" type="Node3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, -1.23186)
+
+[node name="Collider" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.96046e-08, 0.55, 0)
+shape = SubResource("BoxShape3D_06rvu")
+
+[node name="Models" type="Node3D" parent="."]
+
+[node name="conveyor-bars-stripe-side" parent="Models" instance=ExtResource("1_xiho0")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="cover-stripe-window2" parent="Models" instance=ExtResource("2_m1e4f")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="conveyor-bars-stripe-fence" parent="Models" instance=ExtResource("3_1e57d")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 1)
+
+[node name="conveyor-bars-stripe-fence2" parent="Models" instance=ExtResource("3_1e57d")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -1)
+
+[node name="arrow-basic2" parent="Models" instance=ExtResource("4_44mdq")]
+transform = Transform3D(-4.37114e-08, 0, 1, 1, -4.37114e-08, 4.37114e-08, 4.37114e-08, 1, 1.91069e-15, 0, 1.211, 0.404)
+
+[node name="ColorDisplay" type="CSGSphere3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.44041, 0.489844)
+radius = 0.140538
+
+[connection signal="body_entered" from="InputZone" to="." method="_on_input_zone_body_entered"]

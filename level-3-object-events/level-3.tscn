@@ -1,0 +1,334 @@
+[gd_scene load_steps=12 format=3 uid="uid://cftm81ynwojy1"]
+
+[ext_resource type="Script" path="res://level-3-object-events/level-3.gd" id="1_vmmdn"]
+[ext_resource type="Environment" uid="uid://7hx38rkladnu" path="res://res/all_level_environment.tres" id="2_ds8iq"]
+[ext_resource type="Material" uid="uid://beg3j5csv2c8w" path="res://res/tree_trunk_1.material" id="3_e5efl"]
+[ext_resource type="Material" uid="uid://lwyg6vt2ysy5" path="res://res/tree_leaf_1.material" id="4_p2lto"]
+[ext_resource type="Material" uid="uid://mwdotvqyuq1t" path="res://res/ground_1.material" id="5_lo3t1"]
+[ext_resource type="Material" uid="uid://qhgcwc8ww1ja" path="res://res/concrete_1.material" id="6_kop53"]
+[ext_resource type="PackedScene" uid="uid://bcvxyngf28of2" path="res://level-2-carry-and-throw/simple-box.tscn" id="7_dts5a"]
+[ext_resource type="PackedScene" uid="uid://xtg477v5rf85" path="res://level-2-carry-and-throw/player.tscn" id="8_kykhd"]
+[ext_resource type="PackedScene" uid="uid://beg6us8o8282f" path="res://level-3-object-events/fillable-box.tscn" id="8_vphkf"]
+[ext_resource type="PackedScene" uid="uid://d2spo4c7ytft0" path="res://level-3-object-events/BottlingMachine.tscn" id="10_mw3oa"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w7h0l"]
+albedo_color = Color(0.101961, 0.0666667, 0.0117647, 1)
+
+[node name="Level-3" type="Node3D"]
+script = ExtResource("1_vmmdn")
+
+[node name="Level" type="Node3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Level"]
+environment = ExtResource("2_ds8iq")
+
+[node name="Sun" type="DirectionalLight3D" parent="Level"]
+transform = Transform3D(0.846596, 0.411133, -0.338001, 0.473157, -0.290574, 0.831678, 0.243716, -0.864023, -0.440529, -11.6106, 0.38444, -11.4999)
+light_energy = 11.333
+shadow_enabled = true
+shadow_blur = 2.824
+
+[node name="TreeTrunk" type="CSGCylinder3D" parent="Level"]
+transform = Transform3D(0.831159, 0, -0.556035, 0, 1, 0, 0.556035, 0, 0.831159, -0.419421, 1.33738, 9.37439)
+use_collision = true
+height = 2.72183
+material = ExtResource("3_e5efl")
+
+[node name="Leaf1" type="CSGCylinder3D" parent="Level/TreeTrunk"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.16341, 0)
+use_collision = true
+radius = 1.65
+height = 2.5
+sides = 11
+cone = true
+material = ExtResource("4_p2lto")
+
+[node name="Leaf2" type="CSGCylinder3D" parent="Level/TreeTrunk/Leaf1"]
+transform = Transform3D(0.999002, 0.0446656, 0, -0.0445685, 0.996831, 0.0658908, 0.00294305, -0.065825, 0.997827, 0, 1.10164, 0)
+use_collision = true
+radius = 1.173
+height = 1.936
+sides = 11
+cone = true
+material = ExtResource("4_p2lto")
+
+[node name="Leaf3" type="CSGCylinder3D" parent="Level/TreeTrunk/Leaf1/Leaf2"]
+transform = Transform3D(0.992217, 0.123666, 0.0145929, -0.124438, 0.989062, 0.079188, -0.00464044, -0.0803876, 0.996753, -1.19209e-07, 0.836053, 9.53674e-07)
+use_collision = true
+radius = 0.835
+height = 1.264
+sides = 11
+cone = true
+material = ExtResource("4_p2lto")
+
+[node name="ground" type="CSGBox3D" parent="Level"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+material_override = ExtResource("5_lo3t1")
+use_collision = true
+size = Vector3(30, 1, 30)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="wall" type="CSGBox3D" parent="Level"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 14.5)
+material_override = SubResource("StandardMaterial3D_w7h0l")
+use_collision = true
+size = Vector3(30, 4, 1)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="wall2" type="CSGBox3D" parent="Level"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -14.5)
+material_override = SubResource("StandardMaterial3D_w7h0l")
+use_collision = true
+size = Vector3(30, 4, 1)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="wall3" type="CSGBox3D" parent="Level"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 14.5, 1, -6.33815e-07)
+material_override = SubResource("StandardMaterial3D_w7h0l")
+use_collision = true
+size = Vector3(30, 4, 1)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="wall4" type="CSGBox3D" parent="Level"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -14.5, 1, 6.33815e-07)
+material_override = SubResource("StandardMaterial3D_w7h0l")
+use_collision = true
+size = Vector3(30, 4, 1)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Stones" type="Node3D" parent="Level"]
+transform = Transform3D(-0.428667, 0, -0.903463, 0, 1, 0, 0.903463, 0, -0.428667, 6.36087, 0.0146356, 10.0425)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Level/Stones"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00271, -0.000328541)
+material_override = ExtResource("6_kop53")
+use_collision = true
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Level/Stones"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.60449, 0.748813, -0.000328541)
+material_override = ExtResource("6_kop53")
+use_collision = true
+radius = 1.04514
+height = 1.55718
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="Level/Stones"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.231389, 0.291491, 1.99127)
+material_override = ExtResource("6_kop53")
+use_collision = true
+radius = 1.91581
+height = 0.653297
+
+[node name="CSGTorus3D" type="CSGTorus3D" parent="Level"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 9.31221, 1.92164, 3.63467)
+use_collision = true
+inner_radius = 1.75792
+outer_radius = 2.54794
+sides = 16
+ring_sides = 8
+material = ExtResource("6_kop53")
+
+[node name="BottlingMachineClear" parent="." instance=ExtResource("10_mw3oa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.69378, 0, -7.66575)
+fillingType = 0
+
+[node name="BottlingMachine2" parent="." instance=ExtResource("10_mw3oa")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -2.94504, 0, -7.66575)
+fillingType = 3
+
+[node name="BottlingMachine3" parent="." instance=ExtResource("10_mw3oa")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 1.21422, 0, -7.66575)
+fillingType = 4
+
+[node name="BottlingMachine4" parent="." instance=ExtResource("10_mw3oa")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 5.34398, 0, -7.66575)
+fillingType = 5
+
+[node name="PhysicsDropZone" type="Node3D" parent="."]
+unique_name_in_owner = true
+
+[node name="Simple-box" parent="PhysicsDropZone" instance=ExtResource("7_dts5a")]
+transform = Transform3D(-0.0804599, 0, 0.996758, 0, 1, 0, -0.996758, 0, -0.0804599, -9.57744, -2.38419e-07, 7.81421)
+
+[node name="Simple-box2" parent="PhysicsDropZone" instance=ExtResource("7_dts5a")]
+transform = Transform3D(-0.0804599, 0, 0.996758, 0, 1, 0, -0.996758, 0, -0.0804599, -9.61656, -3.57628e-07, 7.24818)
+
+[node name="Simple-box3" parent="PhysicsDropZone" instance=ExtResource("7_dts5a")]
+transform = Transform3D(-0.0804599, 0, 0.996758, 0, 1, 0, -0.996758, 0, -0.0804599, -9.65352, -3.57628e-07, 6.67217)
+
+[node name="Simple-box4" parent="PhysicsDropZone" instance=ExtResource("7_dts5a")]
+transform = Transform3D(-0.0804599, 0, 0.996758, 0, 1, 0, -0.996758, 0, -0.0804599, -9.7024, -3.57628e-07, 6.08584)
+
+[node name="Simple-box5" parent="PhysicsDropZone" instance=ExtResource("7_dts5a")]
+transform = Transform3D(-0.0804599, 0, 0.996758, 0, 1, 0, -0.996758, 0, -0.0804599, -9.59362, 0.558182, 7.53242)
+
+[node name="Simple-box6" parent="PhysicsDropZone" instance=ExtResource("7_dts5a")]
+transform = Transform3D(-0.0804599, 0, 0.996758, 0, 1, 0, -0.996758, 0, -0.0804599, -9.63057, 0.558182, 6.95642)
+
+[node name="Simple-box7" parent="PhysicsDropZone" instance=ExtResource("7_dts5a")]
+transform = Transform3D(-0.0804599, 0, 0.996758, 0, 1, 0, -0.996758, 0, -0.0804599, -9.67946, 0.558182, 6.37007)
+
+[node name="Simple-box8" parent="PhysicsDropZone" instance=ExtResource("7_dts5a")]
+transform = Transform3D(-0.0804599, 0, 0.996758, 0, 1, 0, -0.996758, 0, -0.0804599, -9.60774, 1.11994, 7.2393)
+
+[node name="Simple-box9" parent="PhysicsDropZone" instance=ExtResource("7_dts5a")]
+transform = Transform3D(-0.0804599, 0, 0.996758, 0, 1, 0, -0.996758, 0, -0.0804599, -9.65662, 1.11994, 6.65296)
+
+[node name="Simple-box10" parent="PhysicsDropZone" instance=ExtResource("7_dts5a")]
+transform = Transform3D(-0.0804599, 0, 0.996758, 0, 1, 0, -0.996758, 0, -0.0804599, -9.6352, 1.66136, 6.93937)
+
+[node name="Simple-box11" parent="PhysicsDropZone" instance=ExtResource("7_dts5a")]
+transform = Transform3D(-0.0804599, 0, 0.996758, 0, 1, 0, -0.996758, 0, -0.0804599, -9.85107, 0.253649, 4.26506)
+
+[node name="Simple-box12" parent="PhysicsDropZone" instance=ExtResource("7_dts5a")]
+transform = Transform3D(-0.0804599, 0, 0.996758, 0, 1, 0, -0.996758, 0, -0.0804599, -9.85107, 0.902492, 4.26506)
+
+[node name="Simple-box13" parent="PhysicsDropZone" instance=ExtResource("7_dts5a")]
+transform = Transform3D(-0.0804599, 0, 0.996758, 0, 1, 0, -0.996758, 0, -0.0804599, -9.85222, 1.52155, 4.26595)
+
+[node name="Simple-box14" parent="PhysicsDropZone" instance=ExtResource("7_dts5a")]
+transform = Transform3D(0.357667, 0, 0.933849, 0, 1, 0, -0.933849, 0, 0.357667, -8.08317, -7.15256e-07, 8.23205)
+
+[node name="Simple-box15" parent="PhysicsDropZone" instance=ExtResource("7_dts5a")]
+transform = Transform3D(0.479856, 0, 0.877348, 0, 1, 0, -0.877348, 0, 0.479856, -6.91566, -7.15256e-07, 8.77795)
+
+[node name="Simple-box16" parent="PhysicsDropZone" instance=ExtResource("7_dts5a")]
+transform = Transform3D(-0.694156, 0, 0.719824, 0, 1, 0, -0.719824, 0, -0.694156, -6.9444, -5.96046e-07, 7.16313)
+
+[node name="Simple-box17" parent="PhysicsDropZone" instance=ExtResource("7_dts5a")]
+transform = Transform3D(0.632597, 0, 0.774481, 0, 1, 0, -0.774481, 0, 0.632597, -5.81429, -5.96046e-07, 7.85161)
+
+[node name="Simple-box19" parent="PhysicsDropZone" instance=ExtResource("7_dts5a")]
+transform = Transform3D(-0.840321, 0, 0.542089, 0, 1, 0, -0.542089, 0, -0.840321, -3.62967, -4.76837e-07, 9.7823)
+
+[node name="Simple-box20" parent="PhysicsDropZone" instance=ExtResource("7_dts5a")]
+transform = Transform3D(-0.759895, 0, 0.650046, 0, 1, 0, -0.650046, 0, -0.759895, -2.85532, -4.76837e-07, 8.75202)
+
+[node name="Simple-box21" parent="PhysicsDropZone" instance=ExtResource("7_dts5a")]
+transform = Transform3D(-0.847205, 0, -0.531265, 0, 1, 0, 0.531265, 0, -0.847205, -4.44153, -3.57628e-07, 8.44802)
+
+[node name="Simple-box22" parent="PhysicsDropZone" instance=ExtResource("7_dts5a")]
+transform = Transform3D(-0.627814, 0, 0.778364, 0, 1, 0, -0.778364, 0, -0.627814, -3.53533, -3.57628e-07, 7.48369)
+
+[node name="Simple-box18" parent="PhysicsDropZone" instance=ExtResource("7_dts5a")]
+transform = Transform3D(-0.809888, 0, 0.586584, 0, 1, 0, -0.586584, 0, -0.809888, -4.77138, -5.96046e-07, 9.56346)
+
+[node name="Fillable-box" parent="PhysicsDropZone" instance=ExtResource("8_vphkf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.27786, 0, 0.117429)
+
+[node name="Fillable-box2" parent="PhysicsDropZone" instance=ExtResource("8_vphkf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.27786, 0, -0.454353)
+
+[node name="Fillable-box3" parent="PhysicsDropZone" instance=ExtResource("8_vphkf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.27786, 0, -1.02627)
+
+[node name="Fillable-box4" parent="PhysicsDropZone" instance=ExtResource("8_vphkf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.27786, 0, -1.95282)
+
+[node name="Fillable-box5" parent="PhysicsDropZone" instance=ExtResource("8_vphkf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.27786, 0, -2.53806)
+
+[node name="Fillable-box6" parent="PhysicsDropZone" instance=ExtResource("8_vphkf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.27786, 0, -3.14049)
+
+[node name="Fillable-box7" parent="PhysicsDropZone" instance=ExtResource("8_vphkf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.57957, 0, 0.117429)
+
+[node name="Fillable-box8" parent="PhysicsDropZone" instance=ExtResource("8_vphkf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.57957, 0, -0.454353)
+
+[node name="Fillable-box9" parent="PhysicsDropZone" instance=ExtResource("8_vphkf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.57957, 0, -1.02627)
+
+[node name="Fillable-box10" parent="PhysicsDropZone" instance=ExtResource("8_vphkf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.57957, 0, -1.95282)
+
+[node name="Fillable-box11" parent="PhysicsDropZone" instance=ExtResource("8_vphkf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.57957, 0, -2.53806)
+
+[node name="Fillable-box12" parent="PhysicsDropZone" instance=ExtResource("8_vphkf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.57957, 0, -3.14049)
+
+[node name="Fillable-box13" parent="PhysicsDropZone" instance=ExtResource("8_vphkf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.85997, 0, 0.117429)
+
+[node name="Fillable-box14" parent="PhysicsDropZone" instance=ExtResource("8_vphkf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.85997, 0, -0.454353)
+
+[node name="Fillable-box15" parent="PhysicsDropZone" instance=ExtResource("8_vphkf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.85997, 0, -1.02627)
+
+[node name="Fillable-box16" parent="PhysicsDropZone" instance=ExtResource("8_vphkf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.85997, 0, -1.95282)
+
+[node name="Fillable-box17" parent="PhysicsDropZone" instance=ExtResource("8_vphkf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.85997, 0, -2.53806)
+
+[node name="Fillable-box18" parent="PhysicsDropZone" instance=ExtResource("8_vphkf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.85997, 0, -3.14049)
+
+[node name="Fillable-box37" parent="PhysicsDropZone" instance=ExtResource("8_vphkf")]
+transform = Transform3D(0.757383, 0, 0.652971, 0, 1, 0, -0.652971, 0, 0.757383, -7.18705, 0.0135061, -5.65698)
+
+[node name="Fillable-box38" parent="PhysicsDropZone" instance=ExtResource("8_vphkf")]
+transform = Transform3D(0.757383, 0, 0.652971, 0, 1, 0, -0.652971, 0, 0.757383, -1.59095, 0.0135061, -1.61573)
+
+[node name="Fillable-box19" parent="PhysicsDropZone" instance=ExtResource("8_vphkf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1959, 0, 0.117429)
+
+[node name="Fillable-box20" parent="PhysicsDropZone" instance=ExtResource("8_vphkf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1959, 0, -0.454353)
+
+[node name="Fillable-box21" parent="PhysicsDropZone" instance=ExtResource("8_vphkf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1959, 0, -1.02627)
+
+[node name="Fillable-box22" parent="PhysicsDropZone" instance=ExtResource("8_vphkf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1959, 0, -1.95282)
+
+[node name="Fillable-box23" parent="PhysicsDropZone" instance=ExtResource("8_vphkf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1959, 0, -2.53806)
+
+[node name="Fillable-box24" parent="PhysicsDropZone" instance=ExtResource("8_vphkf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1959, 0, -3.14049)
+
+[node name="Fillable-box25" parent="PhysicsDropZone" instance=ExtResource("8_vphkf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1959, 0.586821, 0.117429)
+
+[node name="Fillable-box26" parent="PhysicsDropZone" instance=ExtResource("8_vphkf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1959, 0.586821, -0.454353)
+
+[node name="Fillable-box27" parent="PhysicsDropZone" instance=ExtResource("8_vphkf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1959, 0.586821, -1.02627)
+
+[node name="Fillable-box28" parent="PhysicsDropZone" instance=ExtResource("8_vphkf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1959, 0.586821, -1.95282)
+
+[node name="Fillable-box29" parent="PhysicsDropZone" instance=ExtResource("8_vphkf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1959, 0.586821, -2.53806)
+
+[node name="Fillable-box30" parent="PhysicsDropZone" instance=ExtResource("8_vphkf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1959, 0.586821, -3.14049)
+
+[node name="Fillable-box31" parent="PhysicsDropZone" instance=ExtResource("8_vphkf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1959, 1.2638, 0.117429)
+
+[node name="Fillable-box32" parent="PhysicsDropZone" instance=ExtResource("8_vphkf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1959, 1.2638, -0.454353)
+
+[node name="Fillable-box33" parent="PhysicsDropZone" instance=ExtResource("8_vphkf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1959, 1.2638, -1.02627)
+
+[node name="Fillable-box34" parent="PhysicsDropZone" instance=ExtResource("8_vphkf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1959, 1.2638, -1.95282)
+
+[node name="Fillable-box35" parent="PhysicsDropZone" instance=ExtResource("8_vphkf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1959, 1.2638, -2.53806)
+
+[node name="Fillable-box36" parent="PhysicsDropZone" instance=ExtResource("8_vphkf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1959, 1.2638, -3.14049)
+
+[node name="Player" parent="." instance=ExtResource("8_kykhd")]

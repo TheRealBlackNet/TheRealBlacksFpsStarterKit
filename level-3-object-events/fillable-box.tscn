@@ -1,0 +1,117 @@
+[gd_scene load_steps=13 format=3 uid="uid://beg6us8o8282f"]
+
+[ext_resource type="Script" path="res://level-3-object-events/fillable-box.gd" id="1_82kf7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w3pvw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_52vhv"]
+albedo_color = Color(0.639216, 0.329412, 0.0941176, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_clem3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dq7e2"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dwwt0"]
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ernvo"]
+albedo_color = Color(0, 0, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nlgud"]
+albedo_color = Color(1, 1, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fo8ws"]
+albedo_color = Color(0, 1, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lsv0b"]
+albedo_color = Color(1, 0, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mncbl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_465tx"]
+albedo_color = Color(0, 0, 0, 1)
+
+[node name="Fillable-box" type="RigidBody3D"]
+mass = 0.5
+script = ExtResource("1_82kf7")
+
+[node name="Collider" type="CollisionShape3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(0.499999, -0.000839864, 0.000523357, 0.000840344, 0.499999, -0.000458512, -0.000522585, 0.000459391, 0.5, 0, 0.25, 0)
+shape = SubResource("BoxShape3D_w3pvw")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+material_override = SubResource("StandardMaterial3D_52vhv")
+calculate_tangents = false
+size = Vector3(0.5, 0.5, 0.5)
+
+[node name="-" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0252442, 0)
+operation = 2
+size = Vector3(0.4, 0.449512, 0.4)
+
+[node name="-2" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1349, 0)
+operation = 2
+size = Vector3(0.52, 0.1, 0.2)
+
+[node name="Fillings" type="Node3D" parent="."]
+
+[node name="White" type="CSGBox3D" parent="Fillings"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.186731, 0)
+material_override = SubResource("StandardMaterial3D_clem3")
+operation = 2
+size = Vector3(0.4, 0.272485, 0.4)
+
+[node name="Red" type="CSGBox3D" parent="Fillings"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.186731, 0)
+material_override = SubResource("StandardMaterial3D_dq7e2")
+operation = 2
+size = Vector3(0.4, 0.272485, 0.4)
+
+[node name="Green" type="CSGBox3D" parent="Fillings"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.186731, 0)
+material_override = SubResource("StandardMaterial3D_dwwt0")
+operation = 2
+size = Vector3(0.4, 0.272485, 0.4)
+
+[node name="Blue" type="CSGBox3D" parent="Fillings"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.186731, 0)
+material_override = SubResource("StandardMaterial3D_ernvo")
+operation = 2
+size = Vector3(0.4, 0.272485, 0.4)
+
+[node name="RG-Y" type="CSGBox3D" parent="Fillings"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.186731, 0)
+material_override = SubResource("StandardMaterial3D_nlgud")
+operation = 2
+size = Vector3(0.4, 0.272485, 0.4)
+
+[node name="GB-C" type="CSGBox3D" parent="Fillings"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.186731, 0)
+material_override = SubResource("StandardMaterial3D_fo8ws")
+operation = 2
+size = Vector3(0.4, 0.272485, 0.4)
+
+[node name="RB-P" type="CSGBox3D" parent="Fillings"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.186731, 0)
+material_override = SubResource("StandardMaterial3D_lsv0b")
+operation = 2
+size = Vector3(0.4, 0.272485, 0.4)
+material = SubResource("StandardMaterial3D_mncbl")
+
+[node name="Black" type="CSGBox3D" parent="Fillings"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.186731, 0)
+material_override = SubResource("StandardMaterial3D_465tx")
+operation = 2
+size = Vector3(0.4, 0.272485, 0.4)

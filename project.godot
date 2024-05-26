@@ -26,6 +26,11 @@ GlobalVariables="*res://global/mapGlobalVariables.gd"
 
 project/assembly_name="TheRealBlacksFpsStarterKit"
 
+[editor]
+
+movie_writer/movie_file="I:/_MyGodot/FilmTemp.avi"
+movie_writer/fps=30
+
 [input]
 
 ui_accept={

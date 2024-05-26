@@ -1,20 +1,24 @@
 extends Node3D
 class_name grabber
 
+#
+# Object to pickup a instance of PickupableInterface from 
+# the world and throw or place it back into it.
+# This could be part of the player script but its long
+#
+
+# object holding in hand
 @export var handPos:Node3D
+# pointer to find object
 @onready var raycast:RayCast3D = %RayCast3D
 
 var handIsEmpty:bool = true
 var itemInHand:PickupableInterface = null
-var throwForce : float = 5
+var throwForce:float = 5
 
+var snap_into_hand:bool = false
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _input(event):
 	if Input.is_action_just_pressed("drop_item"):
 		if !handIsEmpty and itemInHand != null:
 			releaseItem(itemInHand,false)
@@ -42,14 +46,23 @@ func releaseItem(item:PickupableInterface, throwIt:bool):
 				-global_transform.basis.z * throwForce)
 		handIsEmpty = true
 		itemInHand = null
-		
 
 func pickupItem(item:PickupableInterface):
-	if handIsEmpty:
+	if handIsEmpty and item.canBeUsed:
 		handIsEmpty = false
 		itemInHand = item
 		itemInHand.pickedUp()
-		item.reparent(handPos,false)
-		item.position = Vector3(0,0,0)
-		item.rotation = Vector3(0,0,0)
-
+		if snap_into_hand:
+			# snaps items into your hand
+			item.reparent(handPos,false)
+			item.position = Vector3(0,0,0)
+			item.rotation = Vector3(0,0,0)
+		else:
+			# place items nice into your hand and rotate it
+			item.reparent(handPos,true)
+			var tween = get_tree().create_tween()
+			tween.parallel()
+			tween.tween_property(item, "position", Vector3(0,0,0), 0.25)
+			tween.parallel()
+			tween.tween_property(item, "rotation", Vector3(0,0,0), 0.125)
+			tween.play()
