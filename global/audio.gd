@@ -15,6 +15,9 @@ func _ready():
 		p.finished.connect(_on_stream_finished.bind(p))
 		p.bus = bus
 
+func play_single(sound_path:String): 
+	queue.append("res://" + sound_path.strip_edges())
+
 func play(sound_path:Array): 
 	# plays a random sound from the array.
 	var sound = sound_path[randi() % sound_path.size()]
@@ -31,3 +34,19 @@ func _process(_delta):
 func _on_stream_finished(stream):
 	# add the player back to the array:
 	available.append(stream)
+
+
+func force_sound(sound_path:String, pitch_win:float, db:int): 
+	var p = AudioStreamPlayer.new()
+	p.bus = bus
+	p.stream = load("res://" + sound_path.strip_edges() )
+	p.pitch_scale = randf_range(1-pitch_win, 1+pitch_win)
+	p.volume_db = db
+	p.finished.connect(_on_stream_finished_forced.bind(p))
+	add_child(p)
+	p.play()
+
+func _on_stream_finished_forced(stream):
+	remove_child(stream)
+	stream.queue_free()
+

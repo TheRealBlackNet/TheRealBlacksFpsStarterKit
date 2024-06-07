@@ -3,8 +3,6 @@ class_name PickupableInterface
 
 @onready var collider:CollisionShape3D = %Collider
 
-@export var fillingColor:FillableBox.FillingType = FillableBox.FillingType.Clear
-
 # a counter 
 var fellOutOfWorld:int = 0
 # used in animations to avoid to be a tween effected 

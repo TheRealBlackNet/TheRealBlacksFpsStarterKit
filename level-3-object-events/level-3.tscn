@@ -7,7 +7,7 @@
 [ext_resource type="Material" uid="uid://mwdotvqyuq1t" path="res://res/ground_1.material" id="5_lo3t1"]
 [ext_resource type="Material" uid="uid://qhgcwc8ww1ja" path="res://res/concrete_1.material" id="6_kop53"]
 [ext_resource type="PackedScene" uid="uid://bcvxyngf28of2" path="res://level-2-carry-and-throw/simple-box.tscn" id="7_dts5a"]
-[ext_resource type="PackedScene" uid="uid://xtg477v5rf85" path="res://level-2-carry-and-throw/player.tscn" id="8_kykhd"]
+[ext_resource type="PackedScene" uid="uid://xtg477v5rf85" path="res://level-2-carry-and-throw/player2.tscn" id="8_kykhd"]
 [ext_resource type="PackedScene" uid="uid://beg6us8o8282f" path="res://level-3-object-events/fillable-box.tscn" id="8_vphkf"]
 [ext_resource type="PackedScene" uid="uid://d2spo4c7ytft0" path="res://level-3-object-events/BottlingMachine.tscn" id="10_mw3oa"]
 

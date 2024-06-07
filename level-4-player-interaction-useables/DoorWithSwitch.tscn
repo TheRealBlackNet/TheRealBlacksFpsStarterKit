@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://d0le2ie8in3vt"]
+
+[ext_resource type="Script" path="res://level-4-player-interaction-useables/DoorWithSwitch.gd" id="1_mwh06"]
+[ext_resource type="PackedScene" uid="uid://bj64yaam3knbj" path="res://kenney_CC/space-station-kit/wall-door-wide-banner.glb" id="1_xvg2n"]
+[ext_resource type="PackedScene" uid="uid://bgj4cfie31g7g" path="res://kenney_CC/space-station-kit/door-double-half.glb" id="2_ibtdq"]
+[ext_resource type="PackedScene" uid="uid://bvt37xkdq1if" path="res://level-4-player-interaction-useables/WallSwitch.tscn" id="3_lqrxm"]
+
+[node name="DoorInFrame" type="Node3D"]
+script = ExtResource("1_mwh06")
+
+[node name="DoorStart" type="Node3D" parent="."]
+unique_name_in_owner = true
+
+[node name="DoorEnd" type="Node3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.59, 0, 0)
+
+[node name="Door" parent="." instance=ExtResource("2_ibtdq")]
+unique_name_in_owner = true
+
+[node name="Frame" parent="." instance=ExtResource("1_xvg2n")]
+
+[node name="WallSwitch1" parent="." instance=ExtResource("3_lqrxm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45, 0.46, 0.1)
+
+[node name="WallSwitch2" parent="." instance=ExtResource("3_lqrxm")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.45, 0.46, -0.1)
+
+[node name="TimerCloseDoor" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="switchOff" from="WallSwitch1" to="." method="_on_wall_switch_switch_off"]
+[connection signal="switchOn" from="WallSwitch1" to="." method="_on_wall_switch_switch_on"]
+[connection signal="switchOff" from="WallSwitch2" to="." method="_on_wall_switch_switch_off"]
+[connection signal="switchOn" from="WallSwitch2" to="." method="_on_wall_switch_switch_on"]
+[connection signal="timeout" from="TimerCloseDoor" to="." method="_on_timer_close_door_timeout"]

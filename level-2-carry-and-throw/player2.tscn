@@ -1,0 +1,85 @@
+[gd_scene load_steps=8 format=3 uid="uid://xtg477v5rf85"]
+
+[ext_resource type="Script" path="res://level-2-carry-and-throw/player2.gd" id="1_b1elr"]
+[ext_resource type="PackedScene" uid="uid://cebuta1ujkgy1" path="res://level-2-carry-and-throw/grabber.tscn" id="2_dg5g2"]
+[ext_resource type="Script" path="res://kenney_CC/level-1-basicmovement/WalkingSounds.gd" id="3_uv3do"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ri6eu"]
+radius = 0.4
+height = 1.8
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hmllw"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m4qdk"]
+albedo_color = Color(0.368627, 0.368627, 0.368627, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_67l3r"]
+albedo_color = Color(0.380392, 0.380392, 0.380392, 1)
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_b1elr")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.69307, -0.0758755)
+
+[node name="Grabber" parent="Camera3D" node_paths=PackedStringArray("handPos") instance=ExtResource("2_dg5g2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.086617)
+handPos = NodePath("../../HoldingPos")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.91, 0)
+shape = SubResource("CapsuleShape3D_ri6eu")
+
+[node name="HoldingPos" type="Node3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.958499, -0.465973)
+
+[node name="BodyShapes" type="Node3D" parent="."]
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="BodyShapes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.179591, 1.22995, 0.419347)
+material_overlay = SubResource("StandardMaterial3D_hmllw")
+radius = 0.0662186
+height = 0.555
+sides = 6
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="BodyShapes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.18, 1.22986, 0.419217)
+material_overlay = SubResource("StandardMaterial3D_hmllw")
+radius = 0.0662186
+height = 0.555
+sides = 6
+
+[node name="Head" type="CSGSphere3D" parent="BodyShapes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.68414, 0.199866)
+radius = 0.208324
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="BodyShapes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.172574, 1.11415, -0.087456)
+radius = 0.106599
+material = SubResource("StandardMaterial3D_m4qdk")
+
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="BodyShapes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.173321, 1.11415, -0.087456)
+radius = 0.106599
+material = SubResource("StandardMaterial3D_m4qdk")
+
+[node name="Backpack" type="CSGBox3D" parent="BodyShapes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.49012e-08, 1.17786, 0.435217)
+size = Vector3(0.4, 0.518848, 0.190527)
+
+[node name="Body" type="CSGCylinder3D" parent="BodyShapes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.764203, 0.185366)
+material_override = SubResource("StandardMaterial3D_67l3r")
+radius = 0.177617
+height = 1.43133
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+unique_name_in_owner = true
+volume_db = -20.0
+max_db = 1.0
+script = ExtResource("3_uv3do")
+
+[connection signal="finished" from="AudioStreamPlayer3D" to="AudioStreamPlayer3D" method="_on_AudioStreamPlayer_finished"]

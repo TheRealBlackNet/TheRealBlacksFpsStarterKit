@@ -28,8 +28,14 @@ func _on_level_2_button_up():
 		"res://level-2-carry-and-throw/level-2.tscn")
 
 func _on_level_3_button_up():
-		get_tree().change_scene_to_file(\
+	get_tree().change_scene_to_file(\
 		"res://level-3-object-events/level-3.tscn")
+
+func _on_level_4_button_up():
+	get_tree().change_scene_to_file(\
+		"res://level-4-player-interaction-useables/level-4.tscn")
+
+
 
 
 

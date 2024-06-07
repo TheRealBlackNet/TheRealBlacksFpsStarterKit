@@ -24,6 +24,7 @@ func _ready():
 	# because the player will stand still first
 	player.stream=sounds.front()
 	player.play()
+	player.volume_db = -30
 	player.autoplay = true
 	player.stream_paused = true
 
@@ -36,6 +37,7 @@ func go():
 func sounds_random(s:Array) -> void:
 	# resort the sounds in the array and play them:
 	s.shuffle()
+	player.volume_db = -30
 	player.stream=sounds.front()
 	player.play()
 

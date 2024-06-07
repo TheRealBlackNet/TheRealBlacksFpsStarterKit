@@ -6,7 +6,7 @@
 [ext_resource type="Material" uid="uid://lwyg6vt2ysy5" path="res://res/tree_leaf_1.material" id="4_ubrx5"]
 [ext_resource type="Material" uid="uid://mwdotvqyuq1t" path="res://res/ground_1.material" id="5_j4x3q"]
 [ext_resource type="Material" uid="uid://qhgcwc8ww1ja" path="res://res/concrete_1.material" id="6_uo0hc"]
-[ext_resource type="PackedScene" uid="uid://xtg477v5rf85" path="res://level-2-carry-and-throw/player.tscn" id="7_ioayw"]
+[ext_resource type="PackedScene" uid="uid://xtg477v5rf85" path="res://level-2-carry-and-throw/player2.tscn" id="7_ioayw"]
 [ext_resource type="PackedScene" uid="uid://bcvxyngf28of2" path="res://level-2-carry-and-throw/simple-box.tscn" id="8_uqmbf"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w7h0l"]

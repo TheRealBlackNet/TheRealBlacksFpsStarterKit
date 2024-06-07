@@ -1,0 +1,300 @@
+[gd_scene load_steps=23 format=3 uid="uid://cftm81ynwojy1"]
+
+[ext_resource type="Script" path="res://level-4-player-interaction-useables/level-4.gd" id="1_vmmdn"]
+[ext_resource type="Environment" uid="uid://7hx38rkladnu" path="res://res/all_level_environment.tres" id="2_ds8iq"]
+[ext_resource type="Material" uid="uid://beg3j5csv2c8w" path="res://res/tree_trunk_1.material" id="3_e5efl"]
+[ext_resource type="Material" uid="uid://lwyg6vt2ysy5" path="res://res/tree_leaf_1.material" id="4_p2lto"]
+[ext_resource type="Material" uid="uid://mwdotvqyuq1t" path="res://res/ground_1.material" id="5_lo3t1"]
+[ext_resource type="Material" uid="uid://qhgcwc8ww1ja" path="res://res/concrete_1.material" id="6_kop53"]
+[ext_resource type="PackedScene" uid="uid://bcvxyngf28of2" path="res://level-2-carry-and-throw/simple-box.tscn" id="7_dts5a"]
+[ext_resource type="PackedScene" uid="uid://beg6us8o8282f" path="res://level-3-object-events/fillable-box.tscn" id="8_vphkf"]
+[ext_resource type="PackedScene" uid="uid://d2spo4c7ytft0" path="res://level-3-object-events/BottlingMachine.tscn" id="10_mw3oa"]
+[ext_resource type="MeshLibrary" uid="uid://hm4afynedi45" path="res://level-4-player-interaction-useables/AGrid.tres" id="11_od287"]
+[ext_resource type="PackedScene" uid="uid://d0le2ie8in3vt" path="res://level-4-player-interaction-useables/DoorWithSwitch.tscn" id="12_luf00"]
+[ext_resource type="PackedScene" uid="uid://cfqklehlxxfg" path="res://level-4-player-interaction-useables/player3.tscn" id="13_0aaej"]
+[ext_resource type="PackedScene" uid="uid://bvt37xkdq1if" path="res://level-4-player-interaction-useables/WallSwitch.tscn" id="13_ys4k1"]
+[ext_resource type="PackedScene" uid="uid://bdsygybodmhda" path="res://level-4-player-interaction-useables/Door.tscn" id="14_2avuw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w7h0l"]
+albedo_color = Color(0.101961, 0.0666667, 0.0117647, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cgqfv"]
+
+[sub_resource type="TextMesh" id="TextMesh_um1hr"]
+material = SubResource("StandardMaterial3D_cgqfv")
+text = "Locked"
+
+[sub_resource type="TextMesh" id="TextMesh_5p5eh"]
+material = SubResource("StandardMaterial3D_cgqfv")
+text = "Call"
+
+[sub_resource type="TextMesh" id="TextMesh_plpf3"]
+material = SubResource("StandardMaterial3D_cgqfv")
+text = "Hold"
+
+[sub_resource type="TextMesh" id="TextMesh_448c7"]
+material = SubResource("StandardMaterial3D_cgqfv")
+text = "Switch"
+
+[sub_resource type="TextMesh" id="TextMesh_p4l24"]
+material = SubResource("StandardMaterial3D_cgqfv")
+text = "Disabled"
+
+[sub_resource type="TextMesh" id="TextMesh_layfm"]
+material = SubResource("StandardMaterial3D_cgqfv")
+text = "Test Door"
+
+[node name="Level-4" type="Node3D"]
+script = ExtResource("1_vmmdn")
+
+[node name="PhysicsDropZone" type="Node3D" parent="."]
+unique_name_in_owner = true
+
+[node name="Simple-box15" parent="PhysicsDropZone" instance=ExtResource("7_dts5a")]
+transform = Transform3D(0.323719, 0, 0.946154, 0, 1, 0, -0.946154, 0, 0.323719, -1.11471, -9.53675e-07, 11.4871)
+
+[node name="Simple-box19" parent="PhysicsDropZone" instance=ExtResource("7_dts5a")]
+transform = Transform3D(-0.920246, 0, 0.391341, 0, 1, 0, -0.391341, 0, -0.920246, -0.713547, -4.76837e-07, 12.7368)
+
+[node name="Simple-box18" parent="PhysicsDropZone" instance=ExtResource("7_dts5a")]
+transform = Transform3D(-0.89782, 0, 0.440362, 0, 1, 0, -0.440362, 0, -0.89782, -1.87585, -5.96046e-07, 12.7153)
+
+[node name="Fillable-box3" parent="PhysicsDropZone" instance=ExtResource("8_vphkf")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.88033, 0, 11.3148)
+
+[node name="Fillable-box9" parent="PhysicsDropZone" instance=ExtResource("8_vphkf")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.88033, 0, 10.6165)
+
+[node name="Fillable-box15" parent="PhysicsDropZone" instance=ExtResource("8_vphkf")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.88033, 0, 9.89694)
+
+[node name="Fillable-box37" parent="PhysicsDropZone" instance=ExtResource("8_vphkf")]
+transform = Transform3D(-0.652971, 0, 0.757383, 0, 1, 0, -0.757383, 0, -0.652971, -1.71173, 0.0135061, 10.6748)
+
+[node name="Fillable-box38" parent="PhysicsDropZone" instance=ExtResource("8_vphkf")]
+transform = Transform3D(-0.652971, 0, 0.757383, 0, 1, 0, -0.757383, 0, -0.652971, -0.971465, 0.0135061, 10.0184)
+
+[node name="Fillable-box21" parent="PhysicsDropZone" instance=ExtResource("8_vphkf")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.88033, 0, 13.2328)
+
+[node name="Fillable-box27" parent="PhysicsDropZone" instance=ExtResource("8_vphkf")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.88033, 0.586821, 13.2328)
+
+[node name="Fillable-box33" parent="PhysicsDropZone" instance=ExtResource("8_vphkf")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.88033, 1.2638, 13.2328)
+
+[node name="Level" type="Node3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Level"]
+environment = ExtResource("2_ds8iq")
+
+[node name="Sun" type="DirectionalLight3D" parent="Level"]
+transform = Transform3D(0.846596, 0.411133, -0.338001, 0.473157, -0.290574, 0.831678, 0.243716, -0.864023, -0.440529, -11.6106, 0.38444, -11.4999)
+light_energy = 11.333
+shadow_enabled = true
+shadow_blur = 2.824
+
+[node name="TreeTrunk" type="CSGCylinder3D" parent="Level"]
+transform = Transform3D(0.831159, 0, -0.556035, 0, 1, 0, 0.556035, 0, 0.831159, 6.94561, 1.33738, 12.1256)
+use_collision = true
+height = 2.72183
+material = ExtResource("3_e5efl")
+
+[node name="Leaf1" type="CSGCylinder3D" parent="Level/TreeTrunk"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.16341, 0)
+use_collision = true
+radius = 1.65
+height = 2.5
+sides = 11
+cone = true
+material = ExtResource("4_p2lto")
+
+[node name="Leaf2" type="CSGCylinder3D" parent="Level/TreeTrunk/Leaf1"]
+transform = Transform3D(0.999002, 0.0446656, 0, -0.0445685, 0.996831, 0.0658908, 0.00294305, -0.065825, 0.997827, 0, 1.10164, 0)
+use_collision = true
+radius = 1.173
+height = 1.936
+sides = 11
+cone = true
+material = ExtResource("4_p2lto")
+
+[node name="Leaf3" type="CSGCylinder3D" parent="Level/TreeTrunk/Leaf1/Leaf2"]
+transform = Transform3D(0.992217, 0.123666, 0.0145929, -0.124438, 0.989062, 0.079188, -0.00464044, -0.0803876, 0.996753, -1.19209e-07, 0.836053, 9.53674e-07)
+use_collision = true
+radius = 0.835
+height = 1.264
+sides = 11
+cone = true
+material = ExtResource("4_p2lto")
+
+[node name="ground" type="CSGBox3D" parent="Level"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+material_override = ExtResource("5_lo3t1")
+use_collision = true
+size = Vector3(30, 1, 30)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="wall" type="CSGBox3D" parent="Level"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 14.5)
+material_override = SubResource("StandardMaterial3D_w7h0l")
+use_collision = true
+size = Vector3(30, 4, 1)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="wall2" type="CSGBox3D" parent="Level"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -14.5)
+material_override = SubResource("StandardMaterial3D_w7h0l")
+use_collision = true
+size = Vector3(30, 4, 1)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="wall3" type="CSGBox3D" parent="Level"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 14.5, 1, -6.33815e-07)
+material_override = SubResource("StandardMaterial3D_w7h0l")
+use_collision = true
+size = Vector3(30, 4, 1)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="wall4" type="CSGBox3D" parent="Level"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -14.5, 1, 6.33815e-07)
+material_override = SubResource("StandardMaterial3D_w7h0l")
+use_collision = true
+size = Vector3(30, 4, 1)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Stones" type="Node3D" parent="Level"]
+transform = Transform3D(-0.428667, 0, -0.903463, 0, 1, 0, 0.903463, 0, -0.428667, 12.1407, 0.0146356, 12.6958)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Level/Stones"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00271, -0.000328541)
+material_override = ExtResource("6_kop53")
+use_collision = true
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Level/Stones"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.60449, 0.748813, -0.000328541)
+material_override = ExtResource("6_kop53")
+use_collision = true
+radius = 1.04514
+height = 1.55718
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="Level/Stones"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.231389, 0.291491, 1.99127)
+material_override = ExtResource("6_kop53")
+use_collision = true
+radius = 1.91581
+height = 0.653297
+
+[node name="CSGTorus3D" type="CSGTorus3D" parent="Level"]
+transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, 2.30903, 1.92164, 11.7221)
+use_collision = true
+inner_radius = 1.75792
+outer_radius = 2.54794
+sides = 16
+ring_sides = 8
+material = ExtResource("6_kop53")
+
+[node name="BottlingMachineClear" parent="Level" instance=ExtResource("10_mw3oa")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4.12606, 0, 10.6735)
+fillingType = 0
+
+[node name="BottlingMachine2" parent="Level" instance=ExtResource("10_mw3oa")]
+transform = Transform3D(-1.5, 0, -1.31134e-07, 0, 1.5, 0, 1.31134e-07, 0, -1.5, -7.50302, 0, 10.2768)
+fillingType = 3
+
+[node name="BottlingMachine3" parent="Level" instance=ExtResource("10_mw3oa")]
+transform = Transform3D(-1.5, 0, -1.31134e-07, 0, 1.5, 0, 1.31134e-07, 0, -1.5, -10.0549, 0, 10.2768)
+fillingType = 4
+
+[node name="BottlingMachine4" parent="Level" instance=ExtResource("10_mw3oa")]
+transform = Transform3D(-1.5, 0, -1.31134e-07, 0, 1.5, 0, 1.31134e-07, 0, -1.5, -12.548, 0, 10.2768)
+fillingType = 5
+
+[node name="GridMap" type="GridMap" parent="Level"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -2.5)
+mesh_library = ExtResource("11_od287")
+cell_size = Vector3(3, 2, 3)
+cell_scale = 3.0
+data = {
+"cells": PackedInt32Array(65535, 65534, 3, 1, 65534, 3, 65534, 65534, 6, 2, 65534, 5, 3, 65534, 3, 4, 65534, 0, 65532, 65535, 1441792, 65532, 1, 1441792, 4, 0, 0, 3, 0, 1441794, 3, 1, 1441792, 3, 2, 1, 4, 2, 0, 65532, 65534, 1441795, 65532, 65533, 1441792, 65532, 65532, 0, 65534, 65533, 1048580, 65534, 65532, 0, 1, 1, 1441797, 1, 0, 1441799, 1, 2, 1441798, 65532, 2, 1441792, 0, 65534, 5, 65535, 65532, 0, 0, 65532, 0, 1, 65532, 0, 2, 65532, 0, 3, 65532, 0, 4, 65532, 0, 65533, 65532, 0, 65531, 65532, 0)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="Player3" parent="." instance=ExtResource("13_0aaej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.474656, 0, 0.883629)
+
+[node name="TestWall" type="Node3D" parent="."]
+
+[node name="DoorWithWall" parent="TestWall" instance=ExtResource("12_luf00")]
+transform = Transform3D(-1.31134e-07, 0, 3, 0, 3, 0, -3, 0, -1.31134e-07, -10.5, 0, -1)
+
+[node name="WallSwitch1_Locked" parent="TestWall" instance=ExtResource("13_ys4k1")]
+transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -10.1671, 1.36364, 3.33126)
+isLocked = true
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="TestWall/WallSwitch1_Locked"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.684797, 0.0599079)
+mesh = SubResource("TextMesh_um1hr")
+
+[node name="WallSwitch2_N" parent="TestWall" instance=ExtResource("13_ys4k1")]
+transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -10.1671, 1.36364, 4.0828)
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="TestWall/WallSwitch2_N"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0603453, 0.462609, 0.0720735)
+mesh = SubResource("TextMesh_5p5eh")
+
+[node name="WallSwitch3_Hold" parent="TestWall" instance=ExtResource("13_ys4k1")]
+transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -10.1671, 1.36364, 4.91437)
+type = 1
+
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="TestWall/WallSwitch3_Hold"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0266284, 0.675258, 0.0720735)
+mesh = SubResource("TextMesh_plpf3")
+
+[node name="WallSwitch4_S" parent="TestWall" instance=ExtResource("13_ys4k1")]
+transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -10.1671, 1.36364, 5.9287)
+type = 2
+
+[node name="CSGMesh3D4" type="CSGMesh3D" parent="TestWall/WallSwitch4_S"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0234374, 0.466484, 0.0625706)
+mesh = SubResource("TextMesh_448c7")
+
+[node name="WallSwitch5_D" parent="TestWall" instance=ExtResource("13_ys4k1")]
+transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -10.1671, 1.36364, 2.41262)
+type = 3
+
+[node name="CSGMesh3D4" type="CSGMesh3D" parent="TestWall/WallSwitch5_D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0234374, 0.466484, 0.0625706)
+mesh = SubResource("TextMesh_p4l24")
+
+[node name="WallSwitch" parent="TestWall" instance=ExtResource("13_ys4k1")]
+transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -10.1749, 1.38994, 1.4514)
+
+[node name="CSGMesh3D4" type="CSGMesh3D" parent="TestWall/WallSwitch"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0234374, 0.631879, 0.10036)
+mesh = SubResource("TextMesh_layfm")
+
+[node name="DoorWall" type="Node3D" parent="."]
+
+[node name="DoorButton" parent="DoorWall" instance=ExtResource("14_2avuw")]
+unique_name_in_owner = true
+transform = Transform3D(2.2, 0, 0, 0, 3, 0, 0, 0, 3, -1.4868, 0.00549996, -6.99438)
+
+[node name="WallButton" parent="DoorWall" instance=ExtResource("13_ys4k1")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -2.67879, 1.34604, -6.65944)
+type = 2
+
+[node name="DoorFlipFlop" parent="DoorWall" instance=ExtResource("14_2avuw")]
+unique_name_in_owner = true
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 1.49726, 0.00549996, -6.98771)
+
+[node name="WallFlipFlop" parent="DoorWall" instance=ExtResource("13_ys4k1")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0.0691195, 1.34604, -6.65944)
+
+[connection signal="switchOn" from="DoorWall/WallButton" to="." method="_on_wall_button_switch_on"]
+[connection signal="switchOff" from="DoorWall/WallFlipFlop" to="." method="_on_wall_flip_flop_switch_off"]
+[connection signal="switchOn" from="DoorWall/WallFlipFlop" to="." method="_on_wall_flip_flop_switch_on"]
