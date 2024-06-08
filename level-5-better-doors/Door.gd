@@ -9,6 +9,7 @@ class_name Door
 var moving:bool = false
 var tween:Tween
 
+var switchList:Array = []
 
 func openDoor():
 	if not moving:

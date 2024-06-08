@@ -1,5 +1,5 @@
 extends SwitchBase
-class_name WallSwitch
+class_name Switch
 
 @export_category("Button Options")
 @export var type:ButtonType = ButtonType.BUTTON
@@ -20,14 +20,12 @@ class_name WallSwitch
 var spam_shield:bool = false
 var animStep = 4
 
-
 enum ButtonType {
 	BUTTON, # click anim\send reset
 	HOLD_BUTTON, # click - let go
 	SWITCH, # toggle on off
 	DISABLED # gray off
 }
-
 
 func _ready():
 	if type == ButtonType.HOLD_BUTTON:
@@ -97,13 +95,13 @@ func setfinalColor():
 			red.show()
 
 func startAnimation():
-	animStep = 4
+	animStep = 0
 	timerAnim.stop()
 	timerAnim.start(0.25/2.0)
 
 func _on_timer_anim_timeout():
 	allOff()
-	if animStep <= 0:
+	if animStep % 2 != 0:
 		timerAnim.stop()
 		setfinalColor()
 		switchOn.emit(self)
@@ -118,7 +116,7 @@ func _on_timer_anim_timeout():
 		else: 
 			black.show()
 	# #####
-	animStep -= 1
+	animStep += 1
 
 
 

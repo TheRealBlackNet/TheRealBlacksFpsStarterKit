@@ -17,3 +17,4 @@ mono_crash.*.json
 /_____UTILS____.txt
 *.import
 /__LOGO
+/level-4-player-interaction-useables/*.tmp

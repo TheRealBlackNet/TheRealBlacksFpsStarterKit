@@ -1,0 +1,266 @@
+[gd_scene load_steps=24 format=3 uid="uid://cdbq4hbff1vc7"]
+
+[ext_resource type="Script" path="res://level-5-better-doors/level-5.gd" id="1_su12d"]
+[ext_resource type="PackedScene" uid="uid://bcvxyngf28of2" path="res://level-2-carry-and-throw/simple-box.tscn" id="2_hq4po"]
+[ext_resource type="PackedScene" uid="uid://beg6us8o8282f" path="res://level-3-object-events/fillable-box.tscn" id="3_4xwjs"]
+[ext_resource type="Environment" uid="uid://7hx38rkladnu" path="res://res/all_level_environment.tres" id="4_v1yf0"]
+[ext_resource type="Material" uid="uid://beg3j5csv2c8w" path="res://res/tree_trunk_1.material" id="5_0eu86"]
+[ext_resource type="Material" uid="uid://lwyg6vt2ysy5" path="res://res/tree_leaf_1.material" id="6_n8fno"]
+[ext_resource type="Material" uid="uid://mwdotvqyuq1t" path="res://res/ground_1.material" id="7_g2ols"]
+[ext_resource type="Material" uid="uid://qhgcwc8ww1ja" path="res://res/concrete_1.material" id="8_v7igk"]
+[ext_resource type="PackedScene" uid="uid://d2spo4c7ytft0" path="res://level-3-object-events/BottlingMachine.tscn" id="9_ai173"]
+[ext_resource type="MeshLibrary" uid="uid://hm4afynedi45" path="res://level-4-player-interaction-useables/AGrid.tres" id="10_f24f5"]
+[ext_resource type="PackedScene" uid="uid://cfqklehlxxfg" path="res://level-4-player-interaction-useables/player3.tscn" id="11_2sxtk"]
+[ext_resource type="PackedScene" uid="uid://d0le2ie8in3vt" path="res://level-4-player-interaction-useables/DoorWithSwitch.tscn" id="12_u7u6a"]
+[ext_resource type="PackedScene" uid="uid://bvt37xkdq1if" path="res://level-4-player-interaction-useables/WallSwitch.tscn" id="13_esyny"]
+[ext_resource type="PackedScene" uid="uid://bi71omy8f5aik" path="res://level-5-better-doors/Door.tscn" id="14_owals"]
+[ext_resource type="PackedScene" uid="uid://cqg2eyec5ud01" path="res://level-5-better-doors/Switch.tscn" id="14_x7gk8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w7h0l"]
+albedo_color = Color(0.101961, 0.0666667, 0.0117647, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cgqfv"]
+
+[sub_resource type="TextMesh" id="TextMesh_448c7"]
+material = SubResource("StandardMaterial3D_cgqfv")
+text = "Switch"
+
+[sub_resource type="TextMesh" id="TextMesh_plpf3"]
+material = SubResource("StandardMaterial3D_cgqfv")
+text = "Hold"
+
+[sub_resource type="TextMesh" id="TextMesh_5p5eh"]
+material = SubResource("StandardMaterial3D_cgqfv")
+text = "Call"
+
+[sub_resource type="TextMesh" id="TextMesh_um1hr"]
+material = SubResource("StandardMaterial3D_cgqfv")
+text = "Locked"
+
+[sub_resource type="TextMesh" id="TextMesh_p4l24"]
+material = SubResource("StandardMaterial3D_cgqfv")
+text = "Disabled"
+
+[sub_resource type="TextMesh" id="TextMesh_layfm"]
+material = SubResource("StandardMaterial3D_cgqfv")
+text = "Test Door"
+
+[node name="Level-5" type="Node3D"]
+script = ExtResource("1_su12d")
+
+[node name="PhysicsDropZone" type="Node3D" parent="."]
+unique_name_in_owner = true
+
+[node name="Simple-box-1" parent="PhysicsDropZone" instance=ExtResource("2_hq4po")]
+transform = Transform3D(-0.89782, 0, 0.440362, 0, 1, 0, -0.440362, 0, -0.89782, 3.22555, -5.96046e-07, 24.5051)
+
+[node name="Fillable-box-1" parent="PhysicsDropZone" instance=ExtResource("3_4xwjs")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.85876, 1.90735e-06, 23.1661)
+
+[node name="Level" type="Node3D" parent="."]
+
+[node name="World" type="Node3D" parent="Level"]
+transform = Transform3D(-0.655348, 0, -0.755328, 0, 1, 0, 0.755328, 0, -0.655348, 12.1407, 0.0146356, 26.2504)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Level/World"]
+environment = ExtResource("4_v1yf0")
+
+[node name="Sun" type="DirectionalLight3D" parent="Level/World"]
+transform = Transform3D(-0.370729, -0.922055, -0.111236, 0.473157, -0.290574, 0.831678, -0.799176, 0.255695, 0.544001, -12.9485, 0.369804, 42.6796)
+light_energy = 11.333
+shadow_enabled = true
+shadow_blur = 2.824
+
+[node name="Objects" type="Node3D" parent="Level"]
+transform = Transform3D(-0.655348, 0, -0.755328, 0, 1, 0, 0.755328, 0, -0.655348, 12.1407, 0.0146356, 26.2504)
+
+[node name="Stones" type="Node3D" parent="Level/Objects"]
+transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0, 0, 0)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Level/Objects/Stones"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00271, -0.000328541)
+material_override = ExtResource("8_v7igk")
+use_collision = true
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Level/Objects/Stones"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.60449, 0.748813, -0.000328541)
+material_override = ExtResource("8_v7igk")
+use_collision = true
+radius = 1.04514
+height = 1.55718
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="Level/Objects/Stones"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.231389, 0.291491, 1.99127)
+material_override = ExtResource("8_v7igk")
+use_collision = true
+radius = 1.91581
+height = 0.653297
+
+[node name="TreeTrunk" type="CSGCylinder3D" parent="Level/Objects"]
+transform = Transform3D(0.736015, 0, 0.676965, 0, 1, 0, -0.676965, 0, 0.736015, 2.01746, 1.32274, 5.32458)
+use_collision = true
+height = 2.72183
+material = ExtResource("5_0eu86")
+
+[node name="Leaf1" type="CSGCylinder3D" parent="Level/Objects/TreeTrunk"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.16341, 0)
+use_collision = true
+radius = 1.65
+height = 2.5
+sides = 11
+cone = true
+material = ExtResource("6_n8fno")
+
+[node name="Leaf2" type="CSGCylinder3D" parent="Level/Objects/TreeTrunk/Leaf1"]
+transform = Transform3D(0.999002, 0.0446656, 0, -0.0445685, 0.996831, 0.0658908, 0.00294305, -0.065825, 0.997827, 0, 1.10164, 0)
+use_collision = true
+radius = 1.173
+height = 1.936
+sides = 11
+cone = true
+material = ExtResource("6_n8fno")
+
+[node name="Leaf3" type="CSGCylinder3D" parent="Level/Objects/TreeTrunk/Leaf1/Leaf2"]
+transform = Transform3D(0.992217, 0.123666, 0.0145929, -0.124438, 0.989062, 0.079188, -0.00464044, -0.0803876, 0.996753, -1.19209e-07, 0.836053, 9.53674e-07)
+use_collision = true
+radius = 0.835
+height = 1.264
+sides = 11
+cone = true
+material = ExtResource("6_n8fno")
+
+[node name="CSGTorus3D" type="CSGTorus3D" parent="Level/Objects"]
+transform = Transform3D(3.30164e-08, 0.755327, -0.655347, 1, -4.37114e-08, 0, -2.86461e-08, -0.655347, -0.755327, 3.16116, 1.907, 2.50701)
+use_collision = true
+inner_radius = 1.75792
+outer_radius = 2.54794
+sides = 16
+ring_sides = 8
+material = ExtResource("8_v7igk")
+
+[node name="BottlingMachineClear" parent="Level/Objects" instance=ExtResource("9_ai173")]
+transform = Transform3D(0.655347, 0, -0.755327, 0, 1, 0, 0.755327, 0, 0.655347, 6.86038, -0.0146356, 8.53748)
+fillingType = 0
+
+[node name="BottlingMachine2" parent="Level/Objects" instance=ExtResource("9_ai173")]
+transform = Transform3D(0.98302, 0, -1.13299, 0, 1.5, 0, 1.13299, 0, 0.98302, 8.13759, -0.0146356, 12.4773)
+fillingType = 3
+
+[node name="Ground" type="Node3D" parent="Level"]
+
+[node name="GridMap" type="GridMap" parent="Level/Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -2.5)
+mesh_library = ExtResource("10_f24f5")
+cell_size = Vector3(3, 2, 3)
+cell_scale = 3.0
+data = {
+"cells": PackedInt32Array(65532, 65535, 1441792, 65532, 1, 1441792, 65534, 65532, 0, 65532, 2, 1441792, 65535, 65532, 0, 0, 65532, 0, 1, 65532, 0, 2, 65532, 0, 3, 65532, 0, 4, 65532, 0, 65533, 65532, 0, 65532, 3, 1441797, 65532, 4, 1441792, 65532, 5, 1441797, 65532, 6, 1441792, 65532, 7, 1441797, 65532, 8, 1441792, 65532, 9, 1441797, 65532, 10, 1441792, 65531, 65532, 1441792, 65531, 65533, 1441792, 65531, 65534, 1441792, 65531, 65535, 1441792, 65531, 0, 1441792, 65531, 1, 1441792, 65531, 2, 1441792, 65531, 3, 1441792, 65531, 4, 1441792, 65531, 5, 1441792, 65531, 6, 1441792, 65531, 7, 1441792, 65531, 8, 1441792, 65531, 9, 1441792, 65531, 10, 1441792, 65533, 65534, 655360, 65532, 65534, 1048577, 65534, 65534, 655365, 0, 65534, 655365, 2, 65534, 655365, 65535, 65534, 655360, 1, 65534, 655360, 3, 65534, 655360, 4, 65534, 655360, 65532, 65532, 655360)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="ground" type="CSGBox3D" parent="Level/Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 6.5)
+material_override = ExtResource("7_g2ols")
+use_collision = true
+size = Vector3(30, 1, 43)
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="wall" type="CSGBox3D" parent="Level/Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 28.5)
+material_override = SubResource("StandardMaterial3D_w7h0l")
+use_collision = true
+size = Vector3(30, 4, 1)
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="wall2" type="CSGBox3D" parent="Level/Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -14.5)
+material_override = SubResource("StandardMaterial3D_w7h0l")
+use_collision = true
+size = Vector3(30, 4, 1)
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="wall3" type="CSGBox3D" parent="Level/Ground"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 14.5, 1, 6.5)
+material_override = SubResource("StandardMaterial3D_w7h0l")
+use_collision = true
+size = Vector3(43, 4, 1)
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="wall4" type="CSGBox3D" parent="Level/Ground"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -14.5, 1, 6.5)
+material_override = SubResource("StandardMaterial3D_w7h0l")
+use_collision = true
+size = Vector3(43, 4, 1)
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="TestWall" type="Node3D" parent="Level"]
+
+[node name="DoorWithWall" parent="Level/TestWall" instance=ExtResource("12_u7u6a")]
+transform = Transform3D(-1.31134e-07, 0, 3, 0, 3, 0, -3, 0, -1.31134e-07, -10.5, 0, -1)
+
+[node name="WallSwitch4_S" parent="Level/TestWall" instance=ExtResource("13_esyny")]
+transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -10.1671, 1.36364, 3.82958)
+type = 2
+
+[node name="CSGMesh3D4" type="CSGMesh3D" parent="Level/TestWall/WallSwitch4_S"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0234374, 0.466484, 0.0625706)
+mesh = SubResource("TextMesh_448c7")
+
+[node name="WallSwitch3_Hold" parent="Level/TestWall" instance=ExtResource("13_esyny")]
+transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -10.1671, 1.36364, 3.27094)
+type = 1
+
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="Level/TestWall/WallSwitch3_Hold"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0266284, 0.675258, 0.0720735)
+mesh = SubResource("TextMesh_plpf3")
+
+[node name="WallSwitch2_N" parent="Level/TestWall" instance=ExtResource("13_esyny")]
+transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -10.1671, 1.36364, 2.60369)
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="Level/TestWall/WallSwitch2_N"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0603453, 0.462609, 0.0720735)
+mesh = SubResource("TextMesh_5p5eh")
+
+[node name="WallSwitch1_Locked" parent="Level/TestWall" instance=ExtResource("13_esyny")]
+transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -10.1671, 1.36364, 2.06058)
+isLocked = true
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="Level/TestWall/WallSwitch1_Locked"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.684797, 0.0599079)
+mesh = SubResource("TextMesh_um1hr")
+
+[node name="WallSwitch5_D" parent="Level/TestWall" instance=ExtResource("13_esyny")]
+transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -10.1671, 1.36364, 1.482)
+type = 3
+
+[node name="CSGMesh3D4" type="CSGMesh3D" parent="Level/TestWall/WallSwitch5_D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0234374, 0.466484, 0.0625706)
+mesh = SubResource("TextMesh_p4l24")
+
+[node name="WallSwitch" parent="Level/TestWall" instance=ExtResource("13_esyny")]
+transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -10.1749, 1.38994, 0.963484)
+
+[node name="CSGMesh3D4" type="CSGMesh3D" parent="Level/TestWall/WallSwitch"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.225503, 0.631879, 0.10036)
+mesh = SubResource("TextMesh_layfm")
+
+[node name="Player3" parent="." instance=ExtResource("11_2sxtk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.474656, 0, 0.883629)
+
+[node name="TestObjects" type="Node3D" parent="."]
+
+[node name="Door-A-Switch1" parent="TestObjects" instance=ExtResource("14_x7gk8")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -5.89186, 1.43395, -6.7)
+
+[node name="Door-A-Switch2" parent="TestObjects" instance=ExtResource("14_x7gk8")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -6.44584, 1.43395, -6.7)
+
+[node name="Door-A" parent="TestObjects" instance=ExtResource("14_owals")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -4.48496, 0, -6.82275)

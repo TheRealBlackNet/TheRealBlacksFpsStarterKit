@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://d0le2ie8in3vt" path="res://level-4-player-interaction-useables/DoorWithSwitch.tscn" id="12_luf00"]
 [ext_resource type="PackedScene" uid="uid://cfqklehlxxfg" path="res://level-4-player-interaction-useables/player3.tscn" id="13_0aaej"]
 [ext_resource type="PackedScene" uid="uid://bvt37xkdq1if" path="res://level-4-player-interaction-useables/WallSwitch.tscn" id="13_ys4k1"]
-[ext_resource type="PackedScene" uid="uid://bdsygybodmhda" path="res://level-4-player-interaction-useables/Door.tscn" id="14_2avuw"]
+[ext_resource type="PackedScene" uid="uid://bdsygybodmhda" path="res://level-4-player-interaction-useables/Door1.tscn" id="14_2avuw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w7h0l"]
 albedo_color = Color(0.101961, 0.0666667, 0.0117647, 1)

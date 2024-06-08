@@ -35,10 +35,6 @@ func _on_level_4_button_up():
 	get_tree().change_scene_to_file(\
 		"res://level-4-player-interaction-useables/level-4.tscn")
 
-
-
-
-
-
-
-
+func _on_level_5_button_up():
+	get_tree().change_scene_to_file(\
+		"res://level-5-better-doors/level-5.tscn")

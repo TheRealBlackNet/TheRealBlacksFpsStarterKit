@@ -1,7 +1,7 @@
 extends UseableInterface
 class_name ClickArea
 
-@onready var parent:WallSwitch = $"..";
+@onready var parent:SwitchBase = $"..";
 
 var is_used_now:bool = false
 

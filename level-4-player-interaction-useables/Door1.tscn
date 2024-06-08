@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://bdsygybodmhda"]
+
+[ext_resource type="Script" path="res://level-4-player-interaction-useables/Door1.gd" id="1_mlh7u"]
+[ext_resource type="PackedScene" uid="uid://bgj4cfie31g7g" path="res://kenney_CC/space-station-kit/door-double-half.glb" id="2_0nvsg"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_a7lmj"]
+height = 0.75
+radius = 0.262303
+
+[node name="Door" type="Node3D"]
+script = ExtResource("1_mlh7u")
+
+[node name="DoorStart" type="Node3D" parent="."]
+unique_name_in_owner = true
+
+[node name="DoorEnd" type="Node3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.59, 0, 0)
+
+[node name="Door" parent="." instance=ExtResource("2_0nvsg")]
+unique_name_in_owner = true
+
+[node name="TimerCloseDoor" type="Timer" parent="."]
+one_shot = true
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.350956, 0)
+shape = SubResource("CylinderShape3D_a7lmj")
+
+[connection signal="timeout" from="TimerCloseDoor" to="." method="_on_timer_close_door_timeout"]
