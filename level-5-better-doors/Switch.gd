@@ -2,10 +2,14 @@ extends SwitchBase
 class_name Switch
 
 @export_category("Button Options")
-@export var type:ButtonType = ButtonType.BUTTON
 
 @export var isLocked:bool = false
-@export var isPressed:bool = false
+@export var isWaiting:bool = false:
+	set (value):
+		isWaiting = value
+		setfinalColor()
+	get:
+		return isWaiting
 
 @onready var timeOutSpam = %TimeOutSpam
 @onready var timerAnim = %TimerAnim
@@ -17,19 +21,9 @@ class_name Switch
 @onready var black = %Black
 @onready var yellow = %Yellow
 
-var spam_shield:bool = false
-var animStep = 4
-
-enum ButtonType {
-	BUTTON, # click anim\send reset
-	HOLD_BUTTON, # click - let go
-	SWITCH, # toggle on off
-	DISABLED # gray off
-}
-
-func _ready():
+func init():
 	if type == ButtonType.HOLD_BUTTON:
-		isPressed = false
+		self.isPressed = false
 	setfinalColor()
 
 func _on_time_out_timeout():
@@ -37,33 +31,42 @@ func _on_time_out_timeout():
 
 func letGo():
 	if type == ButtonType.HOLD_BUTTON:
-		allOff()
-		white.show()
+		self.isPressed = false
+		setfinalColor()
 		Audio.force_sound("/kenney_CC/metalClick.ogg", 0.0, -5)
-		switchOff.emit(self)
+		switchAble.switchedOff()
 
 func tryUse() -> bool:
 	var is_used_now = false
-	if not spam_shield:
+	if not spam_shield and not isWaiting:
 		spam_shield = true
 		timeOutSpam.start(0.75)
 		if type != ButtonType.DISABLED:
 			if isLocked:
 				Audio.force_sound("/kenney_CC/zapThreeToneDown.ogg", 0.0, -20)
-				startAnimation()
+				setfinalColor()
 			else:
 				if type == ButtonType.BUTTON:
-					startAnimation()
+					isWaiting = true
 				elif type == ButtonType.HOLD_BUTTON:
 					allOff()
-					green.show()
-					isPressed = true
+					self.isPressed = true
+					yellow.show()
 				elif type == ButtonType.SWITCH:
-					isPressed = !isPressed
-					startAnimation()
+					self.isPressed = !self.isPressed
+				
+				setfinalColor()
 				# ###
 				Audio.force_sound("/kenney_CC/threeTone1.ogg", 0.0, -18)
 				is_used_now = true
+				
+				if type == ButtonType.SWITCH:
+					if self.isPressed:
+						switchAble.switchedOn()
+					else:
+						switchAble.switchedOff()
+				else:
+					switchAble.switchedOn()
 		else:
 			allOff()
 			black.show()
@@ -82,50 +85,19 @@ func setfinalColor():
 	allOff()
 	if isLocked:
 		red.show()
+	elif isWaiting:
+		yellow.show()
 	elif type == ButtonType.DISABLED:
 		black.show()
 	elif type == ButtonType.BUTTON:
-		yellow.show()
+		green.show()
 	elif type == ButtonType.HOLD_BUTTON:
-		white.show()
+		if self.isPressed:
+			yellow.show()
+		else:
+			green.show()
 	elif type == ButtonType.SWITCH:
-		if isPressed:
+		if self.isPressed:
 			green.show()
 		else:
 			red.show()
-
-func startAnimation():
-	animStep = 0
-	timerAnim.stop()
-	timerAnim.start(0.25/2.0)
-
-func _on_timer_anim_timeout():
-	allOff()
-	if animStep % 2 != 0:
-		timerAnim.stop()
-		setfinalColor()
-		switchOn.emit(self)
-	elif animStep % 2 == 0:
-		if type == ButtonType.BUTTON:
-			yellow.show()
-		else: 
-			white.show()
-	else:
-		if type == ButtonType.BUTTON:
-			white.show()
-		else: 
-			black.show()
-	# #####
-	animStep += 1
-
-
-
-
-
-
-
-
-
-
-
-

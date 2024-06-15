@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cdbq4hbff1vc7"]
+[gd_scene load_steps=27 format=3 uid="uid://cdbq4hbff1vc7"]
 
 [ext_resource type="Script" path="res://level-5-better-doors/level-5.gd" id="1_su12d"]
 [ext_resource type="PackedScene" uid="uid://bcvxyngf28of2" path="res://level-2-carry-and-throw/simple-box.tscn" id="2_hq4po"]
@@ -11,9 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://d2spo4c7ytft0" path="res://level-3-object-events/BottlingMachine.tscn" id="9_ai173"]
 [ext_resource type="MeshLibrary" uid="uid://hm4afynedi45" path="res://level-4-player-interaction-useables/AGrid.tres" id="10_f24f5"]
 [ext_resource type="PackedScene" uid="uid://cfqklehlxxfg" path="res://level-4-player-interaction-useables/player3.tscn" id="11_2sxtk"]
-[ext_resource type="PackedScene" uid="uid://d0le2ie8in3vt" path="res://level-4-player-interaction-useables/DoorWithSwitch.tscn" id="12_u7u6a"]
-[ext_resource type="PackedScene" uid="uid://bvt37xkdq1if" path="res://level-4-player-interaction-useables/WallSwitch.tscn" id="13_esyny"]
+[ext_resource type="PackedScene" uid="uid://nkmxii5psbn8" path="res://level-5-better-doors/Dummy.tscn" id="11_xdhe1"]
 [ext_resource type="PackedScene" uid="uid://bi71omy8f5aik" path="res://level-5-better-doors/Door.tscn" id="14_owals"]
+[ext_resource type="PackedScene" uid="uid://boylb4eqft1rr" path="res://level-5-better-doors/SwitchZone.tscn" id="14_v7v41"]
 [ext_resource type="PackedScene" uid="uid://cqg2eyec5ud01" path="res://level-5-better-doors/Switch.tscn" id="14_x7gk8"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w7h0l"]
@@ -44,6 +44,20 @@ text = "Disabled"
 [sub_resource type="TextMesh" id="TextMesh_layfm"]
 material = SubResource("StandardMaterial3D_cgqfv")
 text = "Test Door"
+
+[sub_resource type="TextMesh" id="TextMesh_ve83b"]
+material = SubResource("StandardMaterial3D_cgqfv")
+text = "Button open Door
+(Autoclose)"
+
+[sub_resource type="TextMesh" id="TextMesh_hyw6d"]
+material = SubResource("StandardMaterial3D_cgqfv")
+text = "Switch Door
+(RemoteClose)"
+
+[sub_resource type="TextMesh" id="TextMesh_s6u2a"]
+material = SubResource("StandardMaterial3D_cgqfv")
+text = "AutoDoor"
 
 [node name="Level-5" type="Node3D"]
 script = ExtResource("1_su12d")
@@ -154,7 +168,7 @@ mesh_library = ExtResource("10_f24f5")
 cell_size = Vector3(3, 2, 3)
 cell_scale = 3.0
 data = {
-"cells": PackedInt32Array(65532, 65535, 1441792, 65532, 1, 1441792, 65534, 65532, 0, 65532, 2, 1441792, 65535, 65532, 0, 0, 65532, 0, 1, 65532, 0, 2, 65532, 0, 3, 65532, 0, 4, 65532, 0, 65533, 65532, 0, 65532, 3, 1441797, 65532, 4, 1441792, 65532, 5, 1441797, 65532, 6, 1441792, 65532, 7, 1441797, 65532, 8, 1441792, 65532, 9, 1441797, 65532, 10, 1441792, 65531, 65532, 1441792, 65531, 65533, 1441792, 65531, 65534, 1441792, 65531, 65535, 1441792, 65531, 0, 1441792, 65531, 1, 1441792, 65531, 2, 1441792, 65531, 3, 1441792, 65531, 4, 1441792, 65531, 5, 1441792, 65531, 6, 1441792, 65531, 7, 1441792, 65531, 8, 1441792, 65531, 9, 1441792, 65531, 10, 1441792, 65533, 65534, 655360, 65532, 65534, 1048577, 65534, 65534, 655365, 0, 65534, 655365, 2, 65534, 655365, 65535, 65534, 655360, 1, 65534, 655360, 3, 65534, 655360, 4, 65534, 655360, 65532, 65532, 655360)
+"cells": PackedInt32Array(65532, 65535, 1441792, 65532, 1, 1441792, 65534, 65532, 0, 65532, 2, 1441792, 65535, 65532, 0, 0, 65532, 0, 1, 65532, 0, 2, 65532, 0, 3, 65532, 0, 4, 65532, 0, 65533, 65532, 0, 65532, 3, 1441797, 65532, 4, 1441792, 65532, 5, 1441797, 65532, 6, 1441792, 65532, 7, 1441797, 65532, 8, 1441792, 65532, 9, 1441797, 65532, 10, 1441792, 65531, 65532, 1441792, 65531, 65533, 1441792, 65531, 65534, 1441792, 65531, 65535, 1441792, 65531, 0, 1441792, 65531, 1, 1441792, 65531, 2, 1441792, 65531, 3, 1441792, 65531, 4, 1441792, 65531, 5, 1441792, 65531, 6, 1441792, 65531, 7, 1441792, 65531, 8, 1441792, 65531, 9, 1441792, 65531, 10, 1441792, 65533, 65534, 655360, 65532, 65534, 1048577, 65534, 65534, 655365, 0, 65534, 655365, 2, 65534, 655365, 65535, 65534, 655360, 1, 65534, 655360, 3, 65534, 655360, 4, 65534, 655360, 65532, 65532, 655360, 65532, 0, 1441797)
 }
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 metadata/_edit_group_ = true
@@ -202,65 +216,135 @@ metadata/_edit_group_ = true
 
 [node name="TestWall" type="Node3D" parent="Level"]
 
-[node name="DoorWithWall" parent="Level/TestWall" instance=ExtResource("12_u7u6a")]
-transform = Transform3D(-1.31134e-07, 0, 3, 0, 3, 0, -3, 0, -1.31134e-07, -10.5, 0, -1)
+[node name="DummyDevQube" parent="Level/TestWall" instance=ExtResource("11_xdhe1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.3061, 3, 6.10482)
 
-[node name="WallSwitch4_S" parent="Level/TestWall" instance=ExtResource("13_esyny")]
-transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -10.1671, 1.36364, 3.82958)
+[node name="BtnSwitch" parent="Level/TestWall" node_paths=PackedStringArray("switchAble") instance=ExtResource("14_x7gk8")]
+transform = Transform3D(-1.31134e-07, 0, 3, 0, 3, 0, -3, 0, -1.31134e-07, -10.1596, 1.4, 5.44173)
 type = 2
+switchAble = NodePath("../DummyDevQube")
 
-[node name="CSGMesh3D4" type="CSGMesh3D" parent="Level/TestWall/WallSwitch4_S"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0234374, 0.466484, 0.0625706)
+[node name="TXTSwitch" type="CSGMesh3D" parent="Level/TestWall/BtnSwitch"]
+transform = Transform3D(0.666667, 0, 8.88178e-15, 0, 0.666667, 0, -8.88178e-15, 0, 0.666667, 0.104088, 0.30363, 0.0391986)
 mesh = SubResource("TextMesh_448c7")
 
-[node name="WallSwitch3_Hold" parent="Level/TestWall" instance=ExtResource("13_esyny")]
-transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -10.1671, 1.36364, 3.27094)
+[node name="BtnHold" parent="Level/TestWall" node_paths=PackedStringArray("switchAble") instance=ExtResource("14_x7gk8")]
+transform = Transform3D(-1.31134e-07, 0, 3, 0, 3, 0, -3, 0, -1.31134e-07, -10.1596, 1.4, 4.25508)
 type = 1
+switchAble = NodePath("../DummyDevQube")
 
-[node name="CSGMesh3D3" type="CSGMesh3D" parent="Level/TestWall/WallSwitch3_Hold"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0266284, 0.675258, 0.0720735)
+[node name="TXTHold" type="CSGMesh3D" parent="Level/TestWall/BtnHold"]
+transform = Transform3D(0.666667, 0, 8.88178e-15, 0, 0.666667, 0, -8.88178e-15, 0, 0.666667, 0.0300509, 0.442813, 0.0455339)
 mesh = SubResource("TextMesh_plpf3")
 
-[node name="WallSwitch2_N" parent="Level/TestWall" instance=ExtResource("13_esyny")]
-transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -10.1671, 1.36364, 2.60369)
+[node name="BtnCall" parent="Level/TestWall" node_paths=PackedStringArray("switchAble") instance=ExtResource("14_x7gk8")]
+transform = Transform3D(-1.31134e-07, 0, 3, 0, 3, 0, -3, 0, -1.31134e-07, -10.1596, 1.4, 3.22644)
+switchAble = NodePath("../DummyDevQube")
 
-[node name="CSGMesh3D2" type="CSGMesh3D" parent="Level/TestWall/WallSwitch2_N"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0603453, 0.462609, 0.0720735)
+[node name="TXTCall" type="CSGMesh3D" parent="Level/TestWall/BtnCall"]
+transform = Transform3D(0.666667, 0, 8.88178e-15, 0, 0.666667, 0, -8.88178e-15, 0, 0.666667, -0.0104891, 0.301047, 0.0455339)
 mesh = SubResource("TextMesh_5p5eh")
 
-[node name="WallSwitch1_Locked" parent="Level/TestWall" instance=ExtResource("13_esyny")]
-transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -10.1671, 1.36364, 2.06058)
+[node name="BtnLocked" parent="Level/TestWall" node_paths=PackedStringArray("switchAble") instance=ExtResource("14_x7gk8")]
+transform = Transform3D(-1.31134e-07, 0, 3, 0, 3, 0, -3, 0, -1.31134e-07, -10.1596, 1.4, 2.47287)
 isLocked = true
+switchAble = NodePath("../DummyDevQube")
 
-[node name="CSGMesh3D" type="CSGMesh3D" parent="Level/TestWall/WallSwitch1_Locked"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.684797, 0.0599079)
+[node name="TXTLocked" type="CSGMesh3D" parent="Level/TestWall/BtnLocked"]
+transform = Transform3D(0.666667, 0, 8.88178e-15, 0, 0.666667, 0, -8.88178e-15, 0, 0.666667, 0.0239508, 0.449172, 0.0374236)
 mesh = SubResource("TextMesh_um1hr")
 
-[node name="WallSwitch5_D" parent="Level/TestWall" instance=ExtResource("13_esyny")]
-transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -10.1671, 1.36364, 1.482)
+[node name="BtnDisabled" parent="Level/TestWall" node_paths=PackedStringArray("switchAble") instance=ExtResource("14_x7gk8")]
+transform = Transform3D(-1.31134e-07, 0, 3, 0, 3, 0, -3, 0, -1.31134e-07, -10.1596, 1.4, 1.61074)
 type = 3
+switchAble = NodePath("../DummyDevQube")
 
-[node name="CSGMesh3D4" type="CSGMesh3D" parent="Level/TestWall/WallSwitch5_D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0234374, 0.466484, 0.0625706)
+[node name="TXTDisabled" type="CSGMesh3D" parent="Level/TestWall/BtnDisabled"]
+transform = Transform3D(0.666667, 0, 8.88178e-15, 0, 0.666667, 0, -8.88178e-15, 0, 0.666667, 0.0851, 0.30363, 0.0391986)
 mesh = SubResource("TextMesh_p4l24")
 
-[node name="WallSwitch" parent="Level/TestWall" instance=ExtResource("13_esyny")]
-transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -10.1749, 1.38994, 0.963484)
+[node name="BtnTestDoor" parent="Level/TestWall" node_paths=PackedStringArray("switchAble") instance=ExtResource("14_x7gk8")]
+transform = Transform3D(-1.31134e-07, 0, 3, 0, 3, 0, -3, 0, -1.31134e-07, -10.2, 1.4, 0.4)
+switchAble = NodePath("../TestDoor")
 
-[node name="CSGMesh3D4" type="CSGMesh3D" parent="Level/TestWall/WallSwitch"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.225503, 0.631879, 0.10036)
+[node name="TXTTestDoor" type="CSGMesh3D" parent="Level/TestWall/BtnTestDoor"]
+transform = Transform3D(0.666667, 0, 8.88178e-15, 0, 0.666667, 0, -8.88178e-15, 0, 0.666667, 0.287903, 0.417899, 0.0752733)
 mesh = SubResource("TextMesh_layfm")
+
+[node name="TestDoor" parent="Level/TestWall" instance=ExtResource("14_owals")]
+transform = Transform3D(-1.31134e-07, 0, 3, 0, 3, 0, -3, 0, -1.31134e-07, -10.4937, -1.19209e-07, -1.0011)
+
+[node name="TestObjects" type="Node3D" parent="Level"]
+
+[node name="AutoClose" type="Node3D" parent="Level/TestObjects"]
+
+[node name="TXTTestDoor2" type="CSGMesh3D" parent="Level/TestObjects/AutoClose"]
+transform = Transform3D(2, 0, -7.81597e-14, 0, 2, 0, 7.81597e-14, 0, 2, -6.81385, 2.60743, -6.57453)
+mesh = SubResource("TextMesh_ve83b")
+
+[node name="Door-A-Switch1" parent="Level/TestObjects/AutoClose" node_paths=PackedStringArray("switchAble") instance=ExtResource("14_x7gk8")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -5.89186, 1.43395, -6.7)
+switchAble = NodePath("../Door-A")
+
+[node name="Door-A-Switch2" parent="Level/TestObjects/AutoClose" node_paths=PackedStringArray("switchAble") instance=ExtResource("14_x7gk8")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -6.44584, 1.43395, -6.7)
+switchAble = NodePath("../Door-A")
+
+[node name="Door-A-Switch3" parent="Level/TestObjects/AutoClose" node_paths=PackedStringArray("switchAble") instance=ExtResource("14_x7gk8")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -7.02002, 1.43395, -6.7)
+switchAble = NodePath("../Door-A")
+
+[node name="Door-A-Switch4" parent="Level/TestObjects/AutoClose" node_paths=PackedStringArray("switchAble") instance=ExtResource("14_x7gk8")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -7.57838, 1.43395, -6.7)
+switchAble = NodePath("../Door-A")
+
+[node name="Door-A" parent="Level/TestObjects/AutoClose" instance=ExtResource("14_owals")]
+editor_description = "Door A"
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -4.49621, 0, -6.96153)
+
+[node name="RemoteClose" type="Node3D" parent="Level/TestObjects"]
+
+[node name="TXTTestDoor3" type="CSGMesh3D" parent="Level/TestObjects/RemoteClose"]
+transform = Transform3D(2, 0, -7.81597e-14, 0, 2, 0, 7.81597e-14, 0, 2, -0.795485, 2.60743, -6.57453)
+mesh = SubResource("TextMesh_hyw6d")
+
+[node name="Door-B-Switch1" parent="Level/TestObjects/RemoteClose" node_paths=PackedStringArray("switchAble") instance=ExtResource("14_x7gk8")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0.120101, 1.43395, -6.7)
+type = 2
+switchAble = NodePath("../Door-B")
+
+[node name="Door-B-Switch2" parent="Level/TestObjects/RemoteClose" node_paths=PackedStringArray("switchAble") instance=ExtResource("14_x7gk8")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -0.333879, 1.43395, -6.7)
+type = 2
+switchAble = NodePath("../Door-B")
+
+[node name="Door-B-Switch3" parent="Level/TestObjects/RemoteClose" node_paths=PackedStringArray("switchAble") instance=ExtResource("14_x7gk8")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -0.830001, 1.43395, -6.7)
+type = 2
+switchAble = NodePath("../Door-B")
+
+[node name="Door-B-Switch4" parent="Level/TestObjects/RemoteClose" node_paths=PackedStringArray("switchAble") instance=ExtResource("14_x7gk8")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -1.37454, 1.43395, -6.7)
+type = 2
+switchAble = NodePath("../Door-B")
+
+[node name="Door-B" parent="Level/TestObjects/RemoteClose" instance=ExtResource("14_owals")]
+editor_description = "Door B"
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 1.51575, 0, -6.96153)
+
+[node name="AutoOpen" type="Node3D" parent="Level/TestObjects"]
+
+[node name="TXTTestDoor4" type="CSGMesh3D" parent="Level/TestObjects/AutoOpen"]
+transform = Transform3D(2, 0, -7.81597e-14, 0, 2, 0, 7.81597e-14, 0, 2, 7.48239, 2.68311, -6.57453)
+mesh = SubResource("TextMesh_s6u2a")
+
+[node name="SwitchZone" parent="Level/TestObjects/AutoOpen" node_paths=PackedStringArray("switchAble") instance=ExtResource("14_v7v41")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.40995, 4.76837e-07, -6.8847)
+switchAble = NodePath("../AutoDoor")
+
+[node name="AutoDoor" parent="Level/TestObjects/AutoOpen" instance=ExtResource("14_owals")]
+editor_description = "Auto Door Zone"
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 7.50573, 4.76837e-07, -6.95805)
 
 [node name="Player3" parent="." instance=ExtResource("11_2sxtk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.474656, 0, 0.883629)
-
-[node name="TestObjects" type="Node3D" parent="."]
-
-[node name="Door-A-Switch1" parent="TestObjects" instance=ExtResource("14_x7gk8")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -5.89186, 1.43395, -6.7)
-
-[node name="Door-A-Switch2" parent="TestObjects" instance=ExtResource("14_x7gk8")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -6.44584, 1.43395, -6.7)
-
-[node name="Door-A" parent="TestObjects" instance=ExtResource("14_owals")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -4.48496, 0, -6.82275)

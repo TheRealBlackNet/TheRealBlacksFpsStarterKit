@@ -34,8 +34,8 @@ anchor_right = 0.049
 anchor_bottom = 0.174
 offset_left = -31.448
 offset_top = -1.752
-offset_right = 442.552
-offset_bottom = 467.248
+offset_right = 418.552
+offset_bottom = 463.248
 theme_override_constants/v_separation = 10
 
 [node name="Level1" type="Button" parent="VFlowContainer"]
@@ -61,7 +61,7 @@ text = "Level 4 - player actions, doors"
 [node name="Level5" type="Button" parent="VFlowContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
-text = "Level 5 - better doors and interaction with switches"
+text = "Level 5 - better doors and  switches"
 
 [node name="EndGame" type="Button" parent="VFlowContainer"]
 custom_minimum_size = Vector2(450, 0)

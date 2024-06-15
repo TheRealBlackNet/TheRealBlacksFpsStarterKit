@@ -29,8 +29,4 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.45, 
 [node name="TimerCloseDoor" type="Timer" parent="."]
 one_shot = true
 
-[connection signal="switchOff" from="WallSwitch1" to="." method="_on_wall_switch_switch_off"]
-[connection signal="switchOn" from="WallSwitch1" to="." method="_on_wall_switch_switch_on"]
-[connection signal="switchOff" from="WallSwitch2" to="." method="_on_wall_switch_switch_off"]
-[connection signal="switchOn" from="WallSwitch2" to="." method="_on_wall_switch_switch_on"]
 [connection signal="timeout" from="TimerCloseDoor" to="." method="_on_timer_close_door_timeout"]

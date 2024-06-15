@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://boylb4eqft1rr"]
+
+[ext_resource type="Script" path="res://level-5-better-doors/SwitchZone.gd" id="1_5suqg"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_rwodh"]
+radius = 2.5
+
+[node name="SwitchZone" type="Node3D"]
+script = ExtResource("1_5suqg")
+type = 2
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CylinderShape3D_rwodh")
+
+[node name="CSGTorus3D" type="CSGTorus3D" parent="."]
+inner_radius = 2.55
+outer_radius = 2.45
+sides = 32
+ring_sides = 4
+
+[node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true
+autostart = true
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
