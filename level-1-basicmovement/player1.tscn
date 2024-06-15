@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dnihg1nft58at"]
 
-[ext_resource type="Script" path="res://kenney_CC/level-1-basicmovement/player1.gd" id="1_g1o3x"]
-[ext_resource type="Script" path="res://kenney_CC/level-1-basicmovement/WalkingSounds.gd" id="2_yvmeh"]
+[ext_resource type="Script" path="res://level-1-basicmovement/player1.gd" id="1_g1o3x"]
+[ext_resource type="Script" path="res://level-1-basicmovement/WalkingSounds.gd" id="2_yvmeh"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ri6eu"]
 radius = 0.4

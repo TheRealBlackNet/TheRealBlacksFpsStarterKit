@@ -2,10 +2,8 @@ extends SwitchBase
 class_name WallSwitch
 
 @export_category("Button Options")
-@export var type:ButtonType = ButtonType.BUTTON
 
 @export var isLocked:bool = false
-@export var isPressed:bool = false
 
 @onready var timeOutSpam = %TimeOutSpam
 @onready var timerAnim = %TimerAnim
@@ -16,18 +14,7 @@ class_name WallSwitch
 @onready var white = %White
 @onready var black = %Black
 @onready var yellow = %Yellow
-
-var spam_shield:bool = false
 var animStep = 4
-
-
-enum ButtonType {
-	BUTTON, # click anim\send reset
-	HOLD_BUTTON, # click - let go
-	SWITCH, # toggle on off
-	DISABLED # gray off
-}
-
 
 func _ready():
 	if type == ButtonType.HOLD_BUTTON:

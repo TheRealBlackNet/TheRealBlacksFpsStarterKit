@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://s54uo3bt8lqj"]
 
-[ext_resource type="Script" path="res://kenney_CC/level-1-basicmovement/level-1.gd" id="1_kqmv7"]
-[ext_resource type="PackedScene" uid="uid://dnihg1nft58at" path="res://kenney_CC/level-1-basicmovement/player1.tscn" id="2_2ybsu"]
+[ext_resource type="Script" path="res://level-1-basicmovement/level-1.gd" id="1_kqmv7"]
+[ext_resource type="PackedScene" uid="uid://dnihg1nft58at" path="res://level-1-basicmovement/player1.tscn" id="2_2ybsu"]
 [ext_resource type="Environment" uid="uid://7hx38rkladnu" path="res://res/all_level_environment.tres" id="2_jg3eh"]
 [ext_resource type="Material" uid="uid://beg3j5csv2c8w" path="res://res/tree_trunk_1.material" id="2_k63wa"]
 [ext_resource type="Material" uid="uid://lwyg6vt2ysy5" path="res://res/tree_leaf_1.material" id="3_0uorg"]

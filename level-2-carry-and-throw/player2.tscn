@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://level-2-carry-and-throw/player2.gd" id="1_b1elr"]
 [ext_resource type="PackedScene" uid="uid://cebuta1ujkgy1" path="res://level-2-carry-and-throw/grabber.tscn" id="2_dg5g2"]
-[ext_resource type="Script" path="res://kenney_CC/level-1-basicmovement/WalkingSounds.gd" id="3_uv3do"]
+[ext_resource type="Script" path="res://level-1-basicmovement/WalkingSounds.gd" id="3_uv3do"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ri6eu"]
 radius = 0.4
