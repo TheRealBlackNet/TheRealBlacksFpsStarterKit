@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3 uid="uid://bc0nyxko3qjyf"]
+
+[ext_resource type="PackedScene" uid="uid://dbivplf1ygdlp" path="res://level-6-gui/Key.tscn" id="1_a37jo"]
+[ext_resource type="Script" path="res://level-6-gui/UIOnly.gd" id="1_chihk"]
+[ext_resource type="PackedScene" uid="uid://ct0wvq16yljm2" path="res://level-6-gui/KeyPad1.tscn" id="2_03g3i"]
+
+[node name="UiOnly" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_chihk")
+
+[node name="Key" parent="." instance=ExtResource("1_a37jo")]
+layout_mode = 0
+offset_left = 170.0
+offset_top = 94.0
+offset_right = 220.0
+offset_bottom = 144.0
+keyvale = "A"
+
+[node name="Key2" parent="." instance=ExtResource("1_a37jo")]
+layout_mode = 0
+offset_left = 169.0
+offset_top = 185.0
+offset_right = 219.0
+offset_bottom = 235.0
+keyvale = "1"
+
+[node name="Key3" parent="." instance=ExtResource("1_a37jo")]
+layout_mode = 0
+offset_left = 169.0
+offset_top = 287.0
+offset_right = 219.0
+offset_bottom = 337.0
+keyvale = "2"
+
+[node name="KeyPad1" parent="." instance=ExtResource("2_03g3i")]
+position = Vector2(322, 58)
+
+[connection signal="clicked" from="Key" to="." method="_on_key_clicked"]
+[connection signal="clicked" from="Key2" to="." method="_on_key_clicked"]
+[connection signal="clicked" from="Key3" to="." method="_on_key_clicked"]

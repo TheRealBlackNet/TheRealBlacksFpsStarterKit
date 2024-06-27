@@ -9,7 +9,7 @@ class_name MapGlobalVariables
 var worldPickupableDropZone:Node3D
 
 #called by map:
-func setWorldPickupableDropZone(node:Node3D):
+func setWorldPickupableDropZone(node:Node3D) -> void:
 	worldPickupableDropZone = node
 
 #called in grabber\player

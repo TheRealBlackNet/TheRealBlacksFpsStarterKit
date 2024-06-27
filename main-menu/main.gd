@@ -38,3 +38,14 @@ func _on_level_4_button_up():
 func _on_level_5_button_up():
 	get_tree().change_scene_to_file(\
 		"res://level-5-better-doors/level-5.tscn")
+
+func _on_level_6_button_up():
+	get_tree().change_scene_to_file(\
+		"res://level-6-gui/level-6.tscn")
+
+func _on_level_6aui_button_up():
+	get_tree().change_scene_to_file(\
+		"res://level-6-gui/UIOnly.tscn")    
+
+
+

@@ -1,0 +1,105 @@
+[gd_scene load_steps=7 format=3 uid="uid://dbivplf1ygdlp"]
+
+[ext_resource type="Script" path="res://level-6-gui/Key.gd" id="1_3cors"]
+[ext_resource type="Texture2D" uid="uid://c60y8equmycqd" path="res://kenney_CC/kenney_ui-pack/PNG/Blue/Double/button_square_flat.png" id="1_acduh"]
+[ext_resource type="Texture2D" uid="uid://defm220m6d6db" path="res://kenney_CC/kenney_ui-pack/PNG/Green/Double/button_square_flat.png" id="2_cn8qf"]
+[ext_resource type="Texture2D" uid="uid://c7gq3s7262qdd" path="res://kenney_CC/kenney_ui-pack/PNG/Grey/Double/button_square_flat.png" id="3_51ndv"]
+[ext_resource type="Texture2D" uid="uid://dmsq35ctn36t5" path="res://kenney_CC/kenney_ui-pack/PNG/Red/Double/button_square_flat.png" id="4_k2nbb"]
+[ext_resource type="Texture2D" uid="uid://fp0u2d2rcpcp" path="res://kenney_CC/kenney_ui-pack/PNG/Yellow/Double/button_square_flat.png" id="5_bhi6k"]
+
+[node name="Key" type="CenterContainer"]
+custom_minimum_size = Vector2(50, 50)
+script = ExtResource("1_3cors")
+
+[node name="BG_Blue" type="NinePatchRect" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("1_acduh")
+region_rect = Rect2(0, 0, 128, 128)
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="BG_Green" type="NinePatchRect" parent="."]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("2_cn8qf")
+region_rect = Rect2(0, 0, 128, 128)
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="BG_White" type="NinePatchRect" parent="."]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("3_51ndv")
+region_rect = Rect2(0, 0, 128, 128)
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="BG_Red" type="NinePatchRect" parent="."]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("4_k2nbb")
+region_rect = Rect2(0, 0, 128, 128)
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="BG_Yellow" type="NinePatchRect" parent="."]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("5_bhi6k")
+region_rect = Rect2(0, 0, 128, 128)
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="button" type="Button" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
+shortcut_in_tooltip = false
+text = "X"
+flat = true
+
+[connection signal="button_down" from="button" to="." method="_on_btn_button_down"]
+[connection signal="button_up" from="button" to="." method="_on_btn_button_up"]

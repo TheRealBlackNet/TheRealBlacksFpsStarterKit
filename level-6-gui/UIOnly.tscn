@@ -1,0 +1,168 @@
+[gd_scene load_steps=4 format=3 uid="uid://bc0nyxko3qjyf"]
+
+[ext_resource type="PackedScene" uid="uid://dbivplf1ygdlp" path="res://level-6-gui/Key.tscn" id="1_a37jo"]
+[ext_resource type="Script" path="res://level-6-gui/UIOnly.gd" id="1_chihk"]
+[ext_resource type="PackedScene" uid="uid://ct0wvq16yljm2" path="res://level-6-gui/KeyPad1.tscn" id="2_03g3i"]
+
+[node name="UiOnly" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_chihk")
+
+[node name="Key" parent="." instance=ExtResource("1_a37jo")]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 84.0
+offset_right = 73.0
+offset_bottom = 134.0
+keyvale = "A"
+
+[node name="Key2" parent="." instance=ExtResource("1_a37jo")]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 141.0
+offset_right = 72.0
+offset_bottom = 191.0
+pressedCol = 1
+keyvale = "B"
+
+[node name="Key3" parent="." instance=ExtResource("1_a37jo")]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 200.0
+offset_right = 72.0
+offset_bottom = 250.0
+pressedCol = 2
+keyvale = "C"
+
+[node name="Key4" parent="." instance=ExtResource("1_a37jo")]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 260.0
+offset_right = 72.0
+offset_bottom = 310.0
+normalCol = 1
+pressedCol = 3
+keyvale = "D"
+
+[node name="Key5" parent="." instance=ExtResource("1_a37jo")]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 324.0
+offset_right = 71.0
+offset_bottom = 374.0
+normalCol = 3
+pressedCol = 2
+keyvale = "E"
+
+[node name="Key6" parent="." instance=ExtResource("1_a37jo")]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 390.0
+offset_right = 73.0
+offset_bottom = 440.0
+normalCol = 4
+pressedCol = 2
+keyvale = "F"
+
+[node name="KeyPad1" parent="." instance=ExtResource("2_03g3i")]
+position = Vector2(94, 77)
+result = "0451"
+
+[node name="KeyPad2" parent="." instance=ExtResource("2_03g3i")]
+position = Vector2(314, 80)
+codeSize = 3
+result = "451"
+
+[node name="KeyPad3" parent="." instance=ExtResource("2_03g3i")]
+position = Vector2(540, 74)
+rotation = 0.0099353
+codeSize = 5
+result = "11111"
+
+[node name="KeyPad4" parent="." instance=ExtResource("2_03g3i")]
+position = Vector2(752, 70)
+codeSize = 3
+result = "---------"
+
+[node name="Key7Show" parent="." instance=ExtResource("1_a37jo")]
+layout_mode = 0
+offset_left = 113.0
+offset_top = 14.0
+offset_right = 187.0
+offset_bottom = 66.0
+keyvale = "SHOW"
+
+[node name="Key8Hide" parent="." instance=ExtResource("1_a37jo")]
+layout_mode = 0
+offset_left = 208.0
+offset_top = 11.0
+offset_right = 288.0
+offset_bottom = 61.0
+keyvale = "HIDE"
+
+[node name="Key9Set" parent="." instance=ExtResource("1_a37jo")]
+layout_mode = 0
+offset_left = 263.0
+offset_top = 478.0
+offset_right = 320.0
+offset_bottom = 528.0
+keyvale = "SET"
+
+[node name="TextEdit" type="TextEdit" parent="."]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 469.0
+offset_right = 252.0
+offset_bottom = 554.0
+theme_override_font_sizes/font_size = 42
+text = "0451"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 377.0
+offset_top = 436.0
+offset_right = 478.0
+offset_bottom = 505.0
+theme_override_font_sizes/font_size = 50
+text = "451"
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 558.0
+offset_top = 423.0
+offset_right = 703.0
+offset_bottom = 492.0
+theme_override_font_sizes/font_size = 50
+text = "11111"
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 776.0
+offset_top = 426.0
+offset_right = 921.0
+offset_bottom = 495.0
+theme_override_font_sizes/font_size = 50
+text = "CAN'T"
+
+[connection signal="clicked" from="Key" to="." method="_on_key_clicked"]
+[connection signal="clicked" from="Key2" to="." method="_on_key_clicked"]
+[connection signal="clicked" from="Key3" to="." method="_on_key_clicked"]
+[connection signal="clicked" from="Key4" to="." method="_on_key_clicked"]
+[connection signal="clicked" from="Key5" to="." method="_on_key_clicked"]
+[connection signal="clicked" from="Key6" to="." method="_on_key_clicked"]
+[connection signal="codeError" from="KeyPad1" to="." method="_on_key_pad_1_code_error"]
+[connection signal="codeMatch" from="KeyPad1" to="." method="_on_key_pad_1_code_match"]
+[connection signal="codeError" from="KeyPad2" to="." method="_on_key_pad_1_code_error"]
+[connection signal="codeMatch" from="KeyPad2" to="." method="_on_key_pad_1_code_match"]
+[connection signal="codeError" from="KeyPad3" to="." method="_on_key_pad_1_code_error"]
+[connection signal="codeMatch" from="KeyPad3" to="." method="_on_key_pad_1_code_match"]
+[connection signal="codeError" from="KeyPad4" to="." method="_on_key_pad_1_code_error"]
+[connection signal="codeMatch" from="KeyPad4" to="." method="_on_key_pad_1_code_match"]
+[connection signal="clicked" from="Key7Show" to="." method="_on_key_7_show_clicked"]
+[connection signal="clicked" from="Key8Hide" to="." method="_on_key_8_hide_clicked"]
+[connection signal="clicked" from="Key9Set" to="." method="_on_key_9_set_clicked"]

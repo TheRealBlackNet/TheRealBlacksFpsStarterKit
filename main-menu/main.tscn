@@ -63,6 +63,16 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 25
 text = "Level 5 - better doors and  switches"
 
+[node name="Level6" type="Button" parent="VFlowContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Level 6 - logic and GUI"
+
+[node name="Level6A-UI" type="Button" parent="VFlowContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Level 6 (A) - UI ONLY TEST"
+
 [node name="EndGame" type="Button" parent="VFlowContainer"]
 custom_minimum_size = Vector2(450, 0)
 layout_mode = 2
@@ -96,5 +106,7 @@ autoplay = true
 [connection signal="button_up" from="VFlowContainer/Level3" to="." method="_on_level_3_button_up"]
 [connection signal="button_up" from="VFlowContainer/Level4" to="." method="_on_level_4_button_up"]
 [connection signal="button_up" from="VFlowContainer/Level5" to="." method="_on_level_5_button_up"]
+[connection signal="button_up" from="VFlowContainer/Level6" to="." method="_on_level_6_button_up"]
+[connection signal="button_up" from="VFlowContainer/Level6A-UI" to="." method="_on_level_6aui_button_up"]
 [connection signal="button_up" from="VFlowContainer/EndGame" to="." method="_on_end_game_button_up"]
 [connection signal="finished" from="AspectRatioContainer/SplashPlayer" to="." method="_on_video_stream_player_finished"]
