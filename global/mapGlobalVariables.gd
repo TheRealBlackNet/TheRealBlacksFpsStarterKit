@@ -16,3 +16,6 @@ func setWorldPickupableDropZone(node:Node3D) -> void:
 func getWorldPickupableDropZone() -> Node3D:
 	return worldPickupableDropZone
 
+
+var playerWithGui:PlayerBase = null
+

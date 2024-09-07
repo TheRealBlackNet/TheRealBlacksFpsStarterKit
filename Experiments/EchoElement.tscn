@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://cpmct8jeo8dn6"]
+
+[ext_resource type="Script" path="res://Experiments/echo_element.gd" id="1_3q2ih"]
+[ext_resource type="Texture2D" uid="uid://doc86jm11tiqh" path="res://kenney_CC/googly-d.png" id="1_j063u"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tb45n"]
+radius = 14.0
+
+[node name="EchoElement" type="Node2D"]
+script = ExtResource("1_3q2ih")
+
+[node name="resetEchoTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[node name="Eye" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(1.13687e-13, 2)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_j063u")
+
+[node name="Area2D" type="Area2D" parent="."]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_tb45n")
+
+[connection signal="timeout" from="resetEchoTimer" to="." method="_on_reset_echo_timer_timeout"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

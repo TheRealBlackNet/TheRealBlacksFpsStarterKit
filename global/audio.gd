@@ -50,4 +50,3 @@ func force_sound(sound_path:String, pitch_win:float, db:int) -> void:
 func _on_stream_finished_forced(stream:AudioStreamPlayer) -> void:
 	remove_child(stream)
 	stream.queue_free()
-
