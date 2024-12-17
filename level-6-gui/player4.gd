@@ -1,5 +1,5 @@
 @icon("res://res/PlayerGui.png")
-extends CharacterBody3D
+extends PlayerBase
 class_name Player4
 
 const SPEED:float = 5.0
@@ -16,19 +16,23 @@ const land_sound_array:Array = [
 	"kenney_CC/impactMining_001.ogg"]
 
 @onready var footsteps:FootStepPlayer = %AudioStreamPlayer3D
+@onready var key_pad_menue:KeyPad = %KeyPadMenue
 
 var gravity:Variant = ProjectSettings.get_setting("physics/3d/default_gravity")
-var mouse_captured:bool = true
 var landed:bool = true
 
 # Extra variables to keep track of mouse movement
-var input_mouse: Vector2
-var rotation_target: Vector3
-var mouse_sensitivity = 700
+var input_mouse:Vector2
+var rotation_target:Vector3
+var mouse_sensitivity:int = 700
+var in_menue:bool = false
 
 func _ready():
 	get_tree().get_root().size_changed.connect(resize) 
 	resize()
+	key_pad_menue.elementActive = false
+	GlobalVariables.playerWithGui = self
+	
 
 func resize():
 	var ch:Node2D = %Crosshair
@@ -43,7 +47,8 @@ func _physics_process(delta):
 func _input(event):
 	# one esc releases the mouse (good for debugging)
 	# a second esc return to the main menu:
-	if event.is_action_pressed("esc") and !mouse_captured:
+	if event.is_action_pressed("esc")\
+			and GlobalVariables.mode == GlobalVariables.GameMode.Free:
 		get_tree().change_scene_to_file("res://main-menu/main.tscn")
 	
 	save_mouse_movement(event)
@@ -106,7 +111,8 @@ func movement_sound():
 
 
 func save_mouse_movement(event):
-	if event is InputEventMouseMotion and mouse_captured:
+	if event is InputEventMouseMotion\
+			and GlobalVariables.mode == GlobalVariables.GameMode.Play:
 		input_mouse = event.relative / mouse_sensitivity
 		rotation_target.y -= event.relative.x / mouse_sensitivity
 		rotation_target.x -= event.relative.y / mouse_sensitivity
@@ -119,15 +125,18 @@ func save_mouse_movement(event):
 
 func mouse_capture_game_close():
 	# clicked back into the game capture mouse:
-	if Input.is_action_just_pressed("shoot"):
-		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-		mouse_captured = true
+	if Input.is_action_just_pressed("shoot")\
+			and GlobalVariables.mode == GlobalVariables.GameMode.Free:
+		GlobalVariables.setPlayMode()
 	
-	if Input.is_action_just_pressed("esc"):
-		if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
-			var tree:SceneTree = get_tree()
-			if tree != null:
-				tree.quit()
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-		mouse_captured = false
+	if Input.is_action_just_pressed("esc")\
+			and GlobalVariables.mode == GlobalVariables.GameMode.Play:
+		GlobalVariables.setFreeMouseMode()
+		input_mouse = Vector2.ZERO
+
+	if Input.is_action_just_pressed("esc")\
+			and GlobalVariables.mode == GlobalVariables.GameMode.GUI:
+		GlobalVariables.getKeypad().hide()
+		GlobalVariables.getKeypad().elementActive = false
+		GlobalVariables.setPlayMode()
 		input_mouse = Vector2.ZERO

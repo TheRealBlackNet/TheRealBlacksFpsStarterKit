@@ -1,0 +1,136 @@
+[gd_scene load_steps=15 format=4 uid="uid://bekko2s4otp4p"]
+
+[ext_resource type="Script" path="res://level-6-gui/WallSwitchGui.gd" id="1_hmnr3"]
+[ext_resource type="Script" path="res://level-4-player-interaction-useables/ClickArea.gd" id="2_6iwnc"]
+[ext_resource type="Texture2D" uid="uid://d1i4bs05r1t3u" path="res://kenney_CC/space-station-kit/Textures/colormap.png" id="3_f7r3c"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0x2ce"]
+size = Vector3(0.1, 0.2, 0.03)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lc3l7"]
+resource_name = "colormap"
+cull_mode = 2
+albedo_texture = ExtResource("3_f7r3c")
+texture_filter = 2
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ixnt8"]
+_surfaces = [{
+"aabb": AABB(-0.05, 0, -0.0125, 0.1, 0.2, 0.025),
+"format": 34896613377,
+"index_count": 54,
+"index_data": PackedByteArray("AgAAAAEAAQADAAIABgAEAAUABQAHAAYABAAGAAMAAwABAAQABwAFAAAAAAACAAcABwACAAgACAAGAAcACQAIAAIACAAKAAYAAgADAAkACgALAAYAAwALAAkAAwAGAAsADgAMAA0ADQAPAA4A"),
+"name": "colormap",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("AAAAAAAAAAAAAP//AAAAAAAA/x/+/wAAAAD/3/7/AAD/////AAAAAP//AAAAAAAA////3/7/AAD///8f/v8AAP+//z/+/wAA/z//P/7/AAD/v/+//v8AAP8//7/+/wAA/z//P///AAD/P/+//v8AAP+//z///wAA/7//v/7/AAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_t82di"]
+resource_name = "wall-switch_wall-switch"
+_surfaces = [{
+"aabb": AABB(-0.05, 0, -0.0125, 0.1, 0.2, 0.025),
+"attribute_data": PackedByteArray("/1eY+f9XZcb/VzLz/1fMzP9XZcb/V5j5/1fMzP9XMvP/V8zM/1fMzP9XZcb/V2XG/1eY+f9XmPn/VzLz/1cy8/9XMvP/V8vs/1cy8/9XzMz/V8vs/1cy0/9XzMz/VzLT/zeY+f83mPn/N5j5/zeY+Q=="),
+"format": 34896613399,
+"index_count": 54,
+"index_data": PackedByteArray("AgAAAAEAAQADAAIABgAEAAUABQAHAAYACgAIAAkACQALAAoADgAMAA0ADQAPAA4AEgAQABEAEQATABIAFAARABAAEQAVABMAEAAWABQAFQAXABMAFgAXABQAFgATABcAGgAYABkAGQAbABoA"),
+"material": SubResource("StandardMaterial3D_lc3l7"),
+"name": "colormap",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 28,
+"vertex_data": PackedByteArray("AAAAAAAA/78AAP//AAD/vwAA/x/+//+/AAD/3/7//7//////AAD/v///AAAAAP+/////3/7//7////8f/v//v////9/+//+PAAD/3/7//4//////AAD/nwAA//8AAP+f//8AAAAA/58AAAAAAAD/n////x/+//+PAAD/H/7//48AAP8f/v//j/+//z/+//9/////H/7//4/////f/v//j/8//z/+//9//7//v/7//38AAP/f/v//j/8//7/+//9//z//P////3//P/+//v//f/+//z////9//7//v/7//3//f////3////9/////f////38AAP9/AAD/fwAA/38AAP///3////9/////f////38AAP9/AAD/fwAA/38AAP9/AAD/f/9///8AAP9/////f/9/////f///////f/9/////f////3////9/////f///")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_ixnt8")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_a2k8b"]
+data = PackedVector3Array(-0.05, 0.025, 0.0125, -0.05, 0, -0.0125, -0.05, 0.2, -0.0125, -0.05, 0.2, -0.0125, -0.05, 0.175, 0.0125, -0.05, 0.025, 0.0125, 0.05, 0.175, 0.0125, 0.05, 0.2, -0.0125, 0.05, 0, -0.0125, 0.05, 0, -0.0125, 0.05, 0.025, 0.0125, 0.05, 0.175, 0.0125, 0.05, 0.2, -0.0125, 0.05, 0.175, 0.0125, -0.05, 0.175, 0.0125, -0.05, 0.175, 0.0125, -0.05, 0.2, -0.0125, 0.05, 0.2, -0.0125, 0.05, 0.025, 0.0125, 0.05, 0, -0.0125, -0.05, 0, -0.0125, -0.05, 0, -0.0125, -0.05, 0.025, 0.0125, 0.05, 0.025, 0.0125, 0.05, 0.025, 0.0125, -0.05, 0.025, 0.0125, 0.025, 0.05, 0.0125, 0.025, 0.05, 0.0125, 0.05, 0.175, 0.0125, 0.05, 0.025, 0.0125, -0.025, 0.05, 0.0125, 0.025, 0.05, 0.0125, -0.05, 0.025, 0.0125, 0.025, 0.05, 0.0125, 0.025, 0.15, 0.0125, 0.05, 0.175, 0.0125, -0.05, 0.025, 0.0125, -0.05, 0.175, 0.0125, -0.025, 0.05, 0.0125, 0.025, 0.15, 0.0125, -0.025, 0.15, 0.0125, 0.05, 0.175, 0.0125, -0.05, 0.175, 0.0125, -0.025, 0.15, 0.0125, -0.025, 0.05, 0.0125, -0.05, 0.175, 0.0125, 0.05, 0.175, 0.0125, -0.025, 0.15, 0.0125, 0.025, 0.05, 0.0125, -0.025, 0.05, 0.0125, -0.025, 0.15, 0.0125, -0.025, 0.15, 0.0125, 0.025, 0.15, 0.0125, 0.025, 0.05, 0.0125)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vdu3n"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4ox74"]
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6i2v0"]
+albedo_color = Color(0, 0, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hjj3i"]
+albedo_color = Color(1, 1, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mtwep"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1x2xa"]
+albedo_color = Color(0, 0, 0, 1)
+
+[node name="WallSwitchGui" type="Node3D"]
+script = ExtResource("1_hmnr3")
+
+[node name="ClickArea" type="Area3D" parent="."]
+input_capture_on_drag = true
+script = ExtResource("2_6iwnc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ClickArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000610359, 0.098877, 0.00259766)
+shape = SubResource("BoxShape3D_0x2ce")
+
+[node name="wall-switch" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_t82di")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="wall-switch"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wall-switch/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_a2k8b")
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="Red" type="CSGBox3D" parent="Node3D"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+size = Vector3(0.05, 0.1, 0.026)
+material = SubResource("StandardMaterial3D_vdu3n")
+
+[node name="Green" type="CSGBox3D" parent="Node3D"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+size = Vector3(0.05, 0.1, 0.026)
+material = SubResource("StandardMaterial3D_4ox74")
+
+[node name="Blue" type="CSGBox3D" parent="Node3D"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+size = Vector3(0.05, 0.1, 0.026)
+material = SubResource("StandardMaterial3D_6i2v0")
+
+[node name="Yellow" type="CSGBox3D" parent="Node3D"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+size = Vector3(0.05, 0.1, 0.026)
+material = SubResource("StandardMaterial3D_hjj3i")
+
+[node name="White" type="CSGBox3D" parent="Node3D"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+size = Vector3(0.05, 0.1, 0.026)
+material = SubResource("StandardMaterial3D_mtwep")
+
+[node name="Black" type="CSGBox3D" parent="Node3D"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+size = Vector3(0.05, 0.1, 0.026)
+material = SubResource("StandardMaterial3D_1x2xa")
+
+[node name="TimeOutSpam" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 10.0
+one_shot = true
+
+[node name="TimerAnim" type="Timer" parent="."]
+unique_name_in_owner = true
+
+[connection signal="area_exited" from="ClickArea" to="ClickArea" method="_on_area_exited"]
+[connection signal="timeout" from="TimeOutSpam" to="." method="_on_time_out_timeout"]
+[connection signal="timeout" from="TimerAnim" to="." method="_on_timer_anim_timeout"]

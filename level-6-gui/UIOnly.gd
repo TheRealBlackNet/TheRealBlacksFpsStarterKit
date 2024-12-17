@@ -25,5 +25,5 @@ func _on_key_pad_1_code_match(sender):
 
 func _on_key_9_set_clicked(key, char):
 	var x:TextEdit = $TextEdit
-	var y:KeyPad1 = $KeyPad1
+	var y:KeyPad = $KeyPad
 	y.result = x.text

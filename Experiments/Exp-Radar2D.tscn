@@ -28,6 +28,7 @@ text = "SONAR"
 [node name="Char" type="CharacterBody2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(585, 286)
+motion_mode = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Char"]
 shape = SubResource("CapsuleShape2D_kidhi")

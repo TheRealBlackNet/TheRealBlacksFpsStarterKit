@@ -71,4 +71,3 @@ func pickupItem(item:PickupableInterface):
 			tween.parallel()
 			tween.tween_property(item, "rotation", Vector3(0,0,0), 0.125)
 			tween.play()
-

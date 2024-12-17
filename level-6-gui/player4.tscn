@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dic4d3maslmet" path="res://level-4-player-interaction-useables/grabAndUser.tscn" id="2_6bpnf"]
 [ext_resource type="Script" path="res://level-1-basicmovement/WalkingSounds.gd" id="3_l36h2"]
 [ext_resource type="Texture2D" uid="uid://bb5bwowvljiof" path="res://level-4-player-interaction-useables/crosshair.png" id="4_gj0xk"]
-[ext_resource type="PackedScene" uid="uid://ct0wvq16yljm2" path="res://level-6-gui/KeyPad1.tscn" id="5_dus0n"]
+[ext_resource type="PackedScene" uid="uid://ct0wvq16yljm2" path="res://level-6-gui/KeyPad.tscn" id="5_dus0n"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ri6eu"]
 radius = 0.4

@@ -15,6 +15,7 @@ enum ButtonType {
 	BUTTON, # click anim\send reset
 	HOLD_BUTTON, # click - let go
 	SWITCH, # toggle on off
+	KEYPAD, # blue opens menue
 	DISABLED # gray off
 }
 
@@ -36,4 +37,3 @@ func tryUse() -> bool:
 func letGo():
 	print_debug("SwitchBase OVERLOAD letGo!")
 	pass
-

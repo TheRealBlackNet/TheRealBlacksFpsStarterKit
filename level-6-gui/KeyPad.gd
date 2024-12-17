@@ -1,24 +1,7 @@
-extends Node2D
-class_name KeyPad1
-
-@export_category("KeyPad Options")
-@export var codeSize = 4
-@export var result:String = "----"
-@export var elementActive = true:
-	get:
-		return elementActive
-	set(val):
-		elementActive = val
-		if elementActive:
-			clearCode()
-			self.show()
-		else:
-			self.hide()
+extends KeyPadBase
+class_name KeyPad
 
 @onready var label_display = %LabelDisplay
-
-signal codeMatch(sender:KeyPad1)
-signal codeError(sender:KeyPad1)
 
 @onready var k_1 = %K1
 @onready var k_2 = %K2
@@ -33,12 +16,8 @@ signal codeError(sender:KeyPad1)
 @onready var k_0 = %K0
 @onready var k_enter = %KEnter
 
-var currentCode:String = "":
-	set(val):
-		currentCode = val
-		label_display.text = currentCode
-	get:
-		return currentCode
+func setCurrentCode(text):
+	label_display.text = currentCode
 
 func _ready():
 	label_display.text = "";
@@ -95,28 +74,3 @@ func _input(event):
 		elif lastKey != null:
 			lastKey.do_Press(false)
 			lastKey = null
-
-
-func _on_number_clicked(key, char):
-	if elementActive:
-		if currentCode.length() >= codeSize:
-			checkCode()
-		else:
-			currentCode = currentCode + char
-
-func _on_clear_clicked(key, char):
-	clearCode()
-
-func _on_enter_clicked(key, char):
-	checkCode()
-
-func checkCode():
-	if elementActive:
-		if currentCode == result:
-			codeMatch.emit(self)
-		else:
-			currentCode = ""
-			codeError.emit(self)
-
-func clearCode():
-	currentCode = ""

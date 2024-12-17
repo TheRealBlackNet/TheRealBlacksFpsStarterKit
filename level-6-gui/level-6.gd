@@ -10,4 +10,4 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	# to drop items back into
 	GlobalVariables.setWorldPickupableDropZone(physics_drop_zone)
-
+	GlobalVariables.setKeypad($Player)

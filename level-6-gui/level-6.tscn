@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cne02yp5kqmdx"]
+[gd_scene load_steps=21 format=3 uid="uid://cne02yp5kqmdx"]
 
 [ext_resource type="Script" path="res://level-6-gui/level-6.gd" id="1_80if8"]
 [ext_resource type="PackedScene" uid="uid://bcvxyngf28of2" path="res://level-2-carry-and-throw/simple-box.tscn" id="2_ka7bn"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://d2spo4c7ytft0" path="res://level-3-object-events/BottlingMachine.tscn" id="8_nstat"]
 [ext_resource type="MeshLibrary" uid="uid://hm4afynedi45" path="res://level-4-player-interaction-useables/AGrid.tres" id="9_gx0xo"]
 [ext_resource type="Material" uid="uid://mwdotvqyuq1t" path="res://res/ground_1.material" id="10_c6jm2"]
+[ext_resource type="PackedScene" uid="uid://bekko2s4otp4p" path="res://level-6-gui/WallSwitchGui.tscn" id="12_0bd80"]
 [ext_resource type="PackedScene" uid="uid://cqg2eyec5ud01" path="res://level-5-better-doors/Switch.tscn" id="12_ike2g"]
 [ext_resource type="PackedScene" uid="uid://bi71omy8f5aik" path="res://level-5-better-doors/Door.tscn" id="13_8qro2"]
 [ext_resource type="PackedScene" uid="uid://dmv04l827dr0o" path="res://level-6-gui/player4.tscn" id="14_fd8vu"]
@@ -165,22 +166,6 @@ switchAble = NodePath("../Door-A")
 editor_description = "Door A"
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -4.49621, 0, -6.96153)
 
-[node name="Side1" parent="Level/Ground/TestObjects/AutoClose" instance=ExtResource("13_8qro2")]
-editor_description = "Door A"
-transform = Transform3D(-1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, 13.4817, -2.38419e-07, -0.990198)
-
-[node name="Side2" parent="Level/Ground/TestObjects/AutoClose" instance=ExtResource("13_8qro2")]
-editor_description = "Door A"
-transform = Transform3D(-1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, 13.4817, -2.38419e-07, 5.0098)
-
-[node name="Side3" parent="Level/Ground/TestObjects/AutoClose" instance=ExtResource("13_8qro2")]
-editor_description = "Door A"
-transform = Transform3D(-1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, 13.4817, -2.38419e-07, 11.0098)
-
-[node name="Side4" parent="Level/Ground/TestObjects/AutoClose" instance=ExtResource("13_8qro2")]
-editor_description = "Door A"
-transform = Transform3D(-1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, 13.4817, -2.38419e-07, 17.0098)
-
 [node name="RemoteClose" type="Node3D" parent="Level/Ground/TestObjects"]
 
 [node name="TXTTestDoor3" type="CSGMesh3D" parent="Level/Ground/TestObjects/RemoteClose"]
@@ -224,6 +209,38 @@ switchAble = NodePath("../AutoDoor")
 [node name="AutoDoor" parent="Level/Ground/TestObjects/AutoOpen" instance=ExtResource("13_8qro2")]
 editor_description = "Auto Door Zone"
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 7.50573, 4.76837e-07, -6.95805)
+
+[node name="SideDoors" type="Node3D" parent="Level/Ground/TestObjects"]
+
+[node name="WallSwitchGui" parent="Level/Ground/TestObjects/SideDoors" node_paths=PackedStringArray("switchAble") instance=ExtResource("12_0bd80")]
+transform = Transform3D(-1.74846e-07, 0, -4, 0, 4, 0, 4, 0, -1.74846e-07, 13.1725, 1.16967, 0.557357)
+unlockCode = "0451"
+switchAble = NodePath("../Side1")
+
+[node name="Side1" parent="Level/Ground/TestObjects/SideDoors" instance=ExtResource("13_8qro2")]
+editor_description = "Door A"
+transform = Transform3D(-1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, 13.4817, -2.38419e-07, -0.990198)
+
+[node name="WallSwitchGui2" parent="Level/Ground/TestObjects/SideDoors" node_paths=PackedStringArray("switchAble") instance=ExtResource("12_0bd80")]
+transform = Transform3D(-2.18557e-07, 0, -5, 0, 5, 0, 5, 0, -2.18557e-07, 13.1869, 1.11582, 6.57211)
+unlockCode = "111111"
+switchAble = NodePath("../Side2")
+
+[node name="Side2" parent="Level/Ground/TestObjects/SideDoors" instance=ExtResource("13_8qro2")]
+editor_description = "Door A"
+transform = Transform3D(-1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, 13.4817, -2.38419e-07, 5.0098)
+
+[node name="WallSwitchGui3" parent="Level/Ground/TestObjects/SideDoors" node_paths=PackedStringArray("switchAble") instance=ExtResource("12_0bd80")]
+transform = Transform3D(-2.18557e-07, 0, -5, 0, 5, 0, 5, 0, -2.18557e-07, 13.1869, 1.11582, 12.5776)
+switchAble = NodePath("../Side3")
+
+[node name="Side3" parent="Level/Ground/TestObjects/SideDoors" instance=ExtResource("13_8qro2")]
+editor_description = "Door A"
+transform = Transform3D(-1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, 13.4817, -2.38419e-07, 11.0098)
+
+[node name="Side4" parent="Level/Ground/TestObjects/SideDoors" instance=ExtResource("13_8qro2")]
+editor_description = "Door A"
+transform = Transform3D(-1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, 13.4817, -2.38419e-07, 17.0098)
 
 [node name="GridMap" type="GridMap" parent="Level/Ground"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -2.5)
@@ -278,3 +295,4 @@ metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
 [node name="Player" parent="." instance=ExtResource("14_fd8vu")]
+transform = Transform3D(-0.017976, 0, -0.999838, 0, 1, 0, 0.999838, 0, -0.017976, 7.46069, 0, 0)

@@ -8,11 +8,8 @@ class_name EchoElement
 func _ready() -> void:
 	sprite_2d.hide()
 
-
-
 func _on_reset_echo_timer_timeout() -> void:
 	sprite_2d.hide()
-
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	sprite_2d.show()
