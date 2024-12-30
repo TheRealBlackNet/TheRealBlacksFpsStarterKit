@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0uxptlu5mwvx"]
+
+[ext_resource type="Script" path="res://level-7-looktrigger/spook_event.gd" id="1_af1od"]
+
+[node name="SpookEvent" type="Node3D"]
+script = ExtResource("1_af1od")

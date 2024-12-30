@@ -1,0 +1,295 @@
+[gd_scene load_steps=31 format=4 uid="uid://cx0mu6mwgt3jt"]
+
+[ext_resource type="Script" path="res://level-7-looktrigger/level-7.gd" id="1_fdcxf"]
+[ext_resource type="PackedScene" uid="uid://box3mqmtf6kdh" path="res://level-7-looktrigger/MonsterCutout.tscn" id="3_jecc8"]
+[ext_resource type="Environment" uid="uid://7hx38rkladnu" path="res://res/all_level_environment.tres" id="4_viqgn"]
+[ext_resource type="PackedScene" uid="uid://b617lpwbtgvlv" path="res://kenney_CC/graveyard-kit/altar-stone.fbx" id="5_5gnce"]
+[ext_resource type="PackedScene" uid="uid://b8thgx4my6abg" path="res://kenney_CC/graveyard-kit/altar-wood.fbx" id="6_jecc8"]
+[ext_resource type="PackedScene" uid="uid://eex622fe2w2w" path="res://kenney_CC/graveyard-kit/character-digger.fbx" id="7_o13o7"]
+[ext_resource type="PackedScene" uid="uid://cusb8eblge2mo" path="res://kenney_CC/graveyard-kit/crypt-small.fbx" id="8_0otju"]
+[ext_resource type="PackedScene" uid="uid://s8v3msrupddx" path="res://kenney_CC/graveyard-kit/crypt-small-entrance-alternative.fbx" id="9_gekpk"]
+[ext_resource type="PackedScene" uid="uid://dg03lipjipany" path="res://kenney_CC/graveyard-kit/crypt-small-roof.fbx" id="10_j8mf7"]
+[ext_resource type="PackedScene" uid="uid://t5yy0b7glwcd" path="res://kenney_CC/graveyard-kit/character-zombie.fbx" id="11_tbwt4"]
+[ext_resource type="PackedScene" uid="uid://bcpvlxcrmj44o" path="res://kenney_CC/graveyard-kit/pine-crooked.fbx" id="12_xe7sg"]
+[ext_resource type="PackedScene" uid="uid://cqypitffdmvdo" path="res://kenney_CC/graveyard-kit/pine-fall-crooked.fbx" id="13_bjfkq"]
+[ext_resource type="MeshLibrary" uid="uid://hm4afynedi45" path="res://level-4-player-interaction-useables/AGrid.tres" id="13_qa0xj"]
+[ext_resource type="PackedScene" uid="uid://x0v105ij4plv" path="res://kenney_CC/graveyard-kit/pine.fbx" id="14_3jvup"]
+[ext_resource type="Material" uid="uid://mwdotvqyuq1t" path="res://res/ground_1.material" id="14_4hmur"]
+[ext_resource type="Texture2D" uid="uid://b5q5la8orfolo" path="res://kenney_CC/graveyard-kit/Textures/colormap.png" id="15_5gnce"]
+[ext_resource type="Script" path="res://level-7-looktrigger/spook_event.gd" id="17_0otju"]
+[ext_resource type="PackedScene" uid="uid://dtt70magy6uid" path="res://level-7-looktrigger/player5.tscn" id="17_jecc8"]
+[ext_resource type="PackedScene" uid="uid://cqg2eyec5ud01" path="res://level-5-better-doors/Switch.tscn" id="18_gekpk"]
+[ext_resource type="PackedScene" uid="uid://bdbgrg04ilmlj" path="res://level-7-looktrigger/OnScreenTrigger.tscn" id="18_o13o7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jecc8"]
+albedo_color = Color(0.766959, 0.592294, 0.12239, 1)
+
+[sub_resource type="TextMesh" id="TextMesh_o13o7"]
+material = SubResource("StandardMaterial3D_jecc8")
+text = "Test
+Visible
+OnScreen
+Notifier"
+font_size = 46
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_npoxn"]
+resource_name = "colormap"
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("15_5gnce")
+emission_enabled = true
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_62bqa"]
+_surfaces = [{
+"aabb": AABB(0, 0, -0.05, 0.4, 0.8, 0.1),
+"format": 34359742465,
+"index_count": 132,
+"index_data": PackedByteArray("AAABAAIAFwAAAAIAAQAXAAIAFwABAA4AAQANAA4ADQAXAA4ADQABAAMAAQAAAAMAFwANABYAAAAXABYAAAALAAMADQADAAsAAAAWABQACAAWAA0ACAAUABYAFAAMAAAACwAAAAwAFAATAAwAEwALAAwACwATABEAEwAQABEAEAALABEAEAATABUAEwAUABUAFAAQABUACwAQAA8AEAAUAA8ACwAPAA0ADwAKAA0ADQAKAAgAEgAPABQADwASAAoAFAAJABIACQAUAAgAEgAFAAoABQAIAAoABAASAAkACAAEAAkABQASAAYAEgAEAAYABAAFAAYACAAFAAcABQAEAAcABAAIAAcA"),
+"name": "colormap",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("mpmZPmZm5j7NzMw8zczMPWZm5j4AAAAAmpmZPmZm5j4AAAAAzczMPWZm5j7NzMw8zczMPgAAAADNzEy9AAAAgM3MTD/NzEy9AAAAgAAAAADNzEy9zczMPs3MTD/NzEy9zczMPs3MTD/NzEw9zczMPgAAAADNzEw9AAAAgM3MTD/NzEw9zczMPTMzsz7NzMw8mpmZPjMzsz7NzMw8zczMPTMzMz/NzEw9zczMPTMzMz8AAAAAzczMPc3MzD3NzEw9zczMPc3MzD0AAAAAzczMPTMzsz4AAAAAAAAAgAAAAADNzEw9mpmZPjMzsz4AAAAAmpmZPs3MzD3NzEw9mpmZPs3MzD0AAAAAmpmZPjMzMz/NzEw9mpmZPjMzMz8AAAAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_rkpue"]
+resource_name = "Scene"
+_surfaces = [{
+"aabb": AABB(0, 0, -0.05, 0.4, 0.8, 0.1),
+"attribute_data": PackedByteArray("AADAPc3MXD8AAMA9zcxcPwAAwD3NzFw/AADAPc3MXD8AAMA9mpl5PwAAwD1mZkY/AADAPZqZeT8AAMA9ZmZGPwAAwD2amXk/AADAPWZmRj8AAMA9ZmZGPwAAwD2amXk/AADAPWZmRj8AAMA9ZmZGPwAAwD1mZkY/AADAPWZmRj8AAMA9MzNjPwAAwD3NzFw/AADAPTMzYz8AAMA9zcxcPwAAwD3NzFw/AADAPc3MTD8AAMA9zcxMPwAAwD3NzFw/AADAPTMzYz8AAMA9MzNzPwAAwD0zM3M/AADAPTMzYz8AAMA9ZmZGPwAAwD2amXk/AADAPZqZeT8AAMA9ZmZGPwAAwD0zM2M/AADAPTMzcz8AAMA9MzNzPwAAwD0zM2M/AADAPc3MXD8AAMA9zcxMPwAAwD3NzEw/AADAPc3MXD8AAMA9zcxMPwAAwD3NzEw/AADAPc3MTD8AAMA9zcxMPwAAwD2amXk/AADAPZqZeT8AAMA9mpl5PwAAwD2amXk/AADAPTMzcz8AAMA9MzNzPwAAwD0zM3M/AADAPTMzcz8AAMA9MzNjPwAAwD0zM2M/AADAPTMzcz8AAMA9mpl5PwAAwD2amXk/AADAPWZmRj8AAMA9MzNzPwAAwD3NzEw/AADAPWZmRj8AAMA9zcxMPwAAWD8zM3M/AABYPzMzYz8AAFg/MzNzPwAAWD8zM2M/AABYP83MXD8AAFg/zcxMPwAAWD/NzFw/AABYP83MTD8="),
+"format": 34359742487,
+"index_count": 132,
+"index_data": PackedByteArray("AAABAAIAAQAAAAMABAAFAAYABQAEAAcACAAJAAoACQAIAAsADAANAA4ADQAMAA8AEAARABIAEQAQABMANAAQABIAEAA0ADUAFAAVABYAFQAUABcAFQAXABgAGAAZABUAGAAaABkAGgAYABsAHAAdAB4AHQAcAB8AIAAhACIAIQAgACMAIQAjACQAJAAlACEAJAAmACUAJgAkACcAKAApACoAKQAoACsALAAtAC4ALQAsAC8AMAAxADIAMQAwADMANgA3ADgANwA2ADkAOAA6ADYAOQA2ADsAOgA4ADwAOQA7AD0AOgA8AD0APQA8ADkAPgA/AEAAPwA+AEEAQgBDAEQAQwBCAEUA"),
+"material": SubResource("StandardMaterial3D_npoxn"),
+"name": "colormap",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 70,
+"vertex_data": PackedByteArray("mpmZPmZm5j7NzMw8zczMPWZm5j4AAAAAmpmZPmZm5j4AAAAAzczMPWZm5j7NzMw8zczMPgAAAADNzEy9AAAAgM3MTD/NzEy9AAAAgAAAAADNzEy9zczMPs3MTD/NzEy9zczMPgAAAADNzEy9zczMPs3MTD/NzEw9zczMPs3MTD/NzEy9zczMPgAAAADNzEw9zczMPs3MTD/NzEw9AAAAgM3MTD/NzEy9zczMPs3MTD/NzEy9AAAAgM3MTD/NzEw9zczMPTMzsz7NzMw8mpmZPmZm5j7NzMw8mpmZPjMzsz7NzMw8zczMPWZm5j7NzMw8zczMPWZm5j4AAAAAzczMPTMzMz/NzEw9zczMPTMzMz8AAAAAzczMPWZm5j7NzMw8zczMPTMzsz7NzMw8zczMPc3MzD3NzEw9zczMPc3MzD0AAAAAzczMPTMzsz4AAAAAAAAAgM3MTD/NzEy9AAAAgAAAAADNzEw9AAAAgAAAAADNzEy9AAAAgM3MTD/NzEw9mpmZPjMzsz4AAAAAmpmZPs3MzD3NzEw9mpmZPs3MzD0AAAAAmpmZPjMzsz7NzMw8mpmZPmZm5j7NzMw8mpmZPjMzMz/NzEw9mpmZPjMzMz8AAAAAmpmZPmZm5j4AAAAAmpmZPjMzMz8AAAAAzczMPTMzMz/NzEw9mpmZPjMzMz/NzEw9zczMPTMzMz8AAAAAzczMPgAAAADNzEy9AAAAgAAAAADNzEw9zczMPgAAAADNzEw9AAAAgAAAAADNzEy9mpmZPs3MzD3NzEw9zczMPc3MzD0AAAAAmpmZPs3MzD0AAAAAzczMPc3MzD3NzEw9mpmZPjMzsz4AAAAAzczMPTMzsz4AAAAAmpmZPs3MzD3NzEw9zczMPgAAAADNzEw9AAAAgAAAAADNzEw9zczMPs3MTD/NzEw9zczMPc3MzD3NzEw9mpmZPjMzMz/NzEw9AAAAgM3MTD/NzEw9zczMPTMzMz/NzEw9zczMPc3MzD0AAAAAmpmZPjMzsz4AAAAAmpmZPs3MzD0AAAAAzczMPTMzsz4AAAAAzczMPWZm5j4AAAAAmpmZPjMzMz8AAAAAmpmZPmZm5j4AAAAAzczMPTMzMz8AAAAA/3//vwAA/7//f///AAD/v/9///8AAP+//3//vwAA/7//////AAD/v/////8AAP+//////wAA/7//////AAD/v////3//////////f/////////9//////////3///////3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f/8/////v/9//7////+//3//P////7//f/+/////v////3//////////f/////////9//////////3//////////f/////////9//////////3//////////f/////8AAP9//3//vwAA/3//f/+/AAD/f/9//78AAP9//3//vwAA/3//f/+/AAD/f/9//78AAP9//3//vwAA/3//f/+/AAD/f/9//78AAP9//3//vwAA/3//f/+/AAD/f/9//7//fwAA////v/9/AAD///+//38AAP///7//fwAA////v/9/AAD///+//38AAP///7//fwAA////v/9/AAD///+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//fwAA////v/9/AAD///+//3//f////7//f/9/////v/9//3////+//3//f////7//f/9/////v/9//3////+//3//f////7//f/9/////v/9//3////+//3//f////7//f/9/////v/9//3////+//3//f////7//f/9/////v/9//3////+//3//f////78=")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_62bqa")
+
+[sub_resource type="Animation" id="Animation_5oaj6"]
+resource_name = "close"
+tracks/0/type = "rotation_3d"
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/path = NodePath("crypt_door/door")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, -0.766044, 0, 0.642788, 0.0333333, 1, 0, -0.759284, 0, 0.650759, 0.0666667, 1, 0, -0.746864, 0, 0.664977, 0.1, 1, 0, -0.721986, 0, 0.691907, 0.133333, 1, 0, -0.685536, 0, 0.728039, 0.166667, 1, 0, -0.636031, 0, 0.771664, 0.2, 1, 0, -0.571788, 0, 0.820401, 0.233333, 1, 0, -0.491104, 0, 0.871101, 0.266667, 1, 0, -0.392515, 0, 0.919745, 0.3, 1, 0, -0.259347, 0, 0.965784, 0.333333, 1, 0, -0.138933, 0, 0.990302, 0.366667, 1, 0, -0.086192, 0, 0.996279, 0.4, 1, 0, -0.0784591, 0, 0.996917, 0.433333, 1, 0, -0.121268, 0, 0.99262, 0.466667, 1, 0, -0.176274, 0, 0.984341, 0.5, 1, 0, -0.203107, 0, 0.979157, 0.533333, 1, 0, -0.215493, 0, 0.976505, 0.566667, 1, 0, -0.213539, 0, 0.976935, 0.6, 1, 0, -0.19723, 0, 0.980357, 0.633333, 1, 0, -0.165077, 0, 0.986281, 0.666667, 1, 0, -0.120907, 0, 0.992664, 0.7, 1, 0, -0.0564213, 0, 0.998407, 0.733333, 1, 0, -0.00702975, 0, 0.999975, 0.766667, 1, 0, -0.0233908, 0, 0.999726, 0.8, 1, 0, -0.052336, 0, 0.99863, 0.833333, 1, 0, -0.0502777, 0, 0.998735, 0.866667, 1, 0, -0.0390176, 0, 0.999239, 0.9, 1, 0, -0.0246776, 0, 0.999695, 0.933333, 1, 0, -0.0106657, 0, 0.999943, 0.966667, 1, 0, -0.00406199, 0, 0.999992, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_f30eh"]
+resource_name = "open"
+tracks/0/type = "rotation_3d"
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/path = NodePath("crypt_door/door")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, -1.9377e-16, 0, 1, 0.0333333, 1, 0, -0.127605, 0, 0.991825, 0.0666667, 1, 0, -0.246814, 0, 0.969063, 0.1, 1, 0, -0.349249, 0, 0.93703, 0.133333, 1, 0, -0.437937, 0, 0.899005, 0.166667, 1, 0, -0.513719, 0, 0.857958, 0.2, 1, 0, -0.577717, 0, 0.816237, 0.233333, 1, 0, -0.631176, 0, 0.77564, 0.266667, 1, 0, -0.675364, 0, 0.737484, 0.3, 1, 0, -0.711494, 0, 0.702692, 0.333333, 1, 0, -0.740681, 0, 0.671857, 0.366667, 1, 0, -0.76392, 0, 0.64531, 0.4, 1, 0, -0.78208, 0, 0.623179, 0.433333, 1, 0, -0.795901, 0, 0.605427, 0.466667, 1, 0, -0.806014, 0, 0.591897, 0.5, 1, 0, -0.812947, 0, 0.582338, 0.533333, 1, 0, -0.817148, 0, 0.576428, 0.566667, 1, 0, -0.818997, 0, 0.573798, 0.6, 1, 0, -0.818827, 0, 0.57404, 0.633333, 1, 0, -0.816939, 0, 0.576725, 0.666667, 1, 0, -0.813611, 0, 0.581409, 0.7, 1, 0, -0.809119, 0, 0.587644, 0.733333, 1, 0, -0.803738, 0, 0.594983, 0.766667, 1, 0, -0.797753, 0, 0.602984, 0.8, 1, 0, -0.791464, 0, 0.611216, 0.833333, 1, 0, -0.785187, 0, 0.619259, 0.866667, 1, 0, -0.779254, 0, 0.626708, 0.9, 1, 0, -0.774014, 0, 0.633169, 0.933333, 1, 0, -0.769824, 0, 0.638256, 0.966667, 1, 0, -0.767523, 0, 0.641021, 1, 1, 0, -0.766044, 0, 0.642788)
+
+[sub_resource type="Animation" id="Animation_r2dbu"]
+resource_name = "open-and-close"
+length = 2.0
+tracks/0/type = "rotation_3d"
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/path = NodePath("crypt_door/door")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, -1.9377e-16, 0, 1, 0.0333333, 1, 0, -0.246814, 0, 0.969063, 0.0666667, 1, 0, -0.437937, 0, 0.899005, 0.1, 1, 0, -0.577717, 0, 0.816237, 0.133333, 1, 0, -0.675364, 0, 0.737484, 0.166667, 1, 0, -0.740681, 0, 0.671857, 0.2, 1, 0, -0.78208, 0, 0.623179, 0.233333, 1, 0, -0.806014, 0, 0.591897, 0.266667, 1, 0, -0.817148, 0, 0.576428, 0.3, 1, 0, -0.818827, 0, 0.57404, 0.333333, 1, 0, -0.813611, 0, 0.581409, 0.366667, 1, 0, -0.803738, 0, 0.594983, 0.4, 1, 0, -0.791464, 0, 0.611216, 0.433333, 1, 0, -0.779254, 0, 0.626708, 0.466667, 1, 0, -0.769824, 0, 0.638256, 0.5, 1, 0, -0.766044, 0, 0.642788, 0.533333, 1, 0, -0.764684, 0, 0.644405, 0.6, 1, 0, -0.764664, 0, 0.644429, 0.633333, 1, 0, -0.765652, 0, 0.643255, 0.666667, 1, 0, -0.767066, 0, 0.641568, 0.7, 1, 0, -0.768728, 0, 0.639575, 0.733333, 1, 0, -0.770461, 0, 0.637487, 0.766667, 1, 0, -0.77209, 0, 0.635513, 0.8, 1, 0, -0.773442, 0, 0.633867, 0.833333, 1, 0, -0.774345, 0, 0.632763, 0.9, 1, 0, -0.774122, 0, 0.633037, 0.933333, 1, 0, -0.772645, 0, 0.634838, 0.966667, 1, 0, -0.770017, 0, 0.638023, 1, 1, 0, -0.766044, 0, 0.642788, 1.03333, 1, 0, -0.76012, 0, 0.649782, 1.06667, 1, 0, -0.746864, 0, 0.664977, 1.1, 1, 0, -0.721986, 0, 0.691907, 1.13333, 1, 0, -0.685536, 0, 0.728039, 1.16667, 1, 0, -0.636031, 0, 0.771664, 1.2, 1, 0, -0.571788, 0, 0.820401, 1.23333, 1, 0, -0.491104, 0, 0.871101, 1.26667, 1, 0, -0.392515, 0, 0.919745, 1.3, 1, 0, -0.259347, 0, 0.965784, 1.33333, 1, 0, -0.138933, 0, 0.990302, 1.36667, 1, 0, -0.086192, 0, 0.996279, 1.4, 1, 0, -0.0784591, 0, 0.996917, 1.43333, 1, 0, -0.121268, 0, 0.99262, 1.46667, 1, 0, -0.176274, 0, 0.984341, 1.5, 1, 0, -0.203107, 0, 0.979157, 1.53333, 1, 0, -0.215493, 0, 0.976505, 1.56667, 1, 0, -0.213539, 0, 0.976935, 1.6, 1, 0, -0.19723, 0, 0.980357, 1.63333, 1, 0, -0.165077, 0, 0.986281, 1.66667, 1, 0, -0.120907, 0, 0.992664, 1.7, 1, 0, -0.0564214, 0, 0.998407, 1.73333, 1, 0, -0.00702975, 0, 0.999975, 1.76667, 1, 0, -0.0233908, 0, 0.999726, 1.8, 1, 0, -0.052336, 0, 0.99863, 1.83333, 1, 0, -0.0502777, 0, 0.998735, 1.86667, 1, 0, -0.0390176, 0, 0.999239, 1.9, 1, 0, -0.0246776, 0, 0.999695, 1.93333, 1, 0, -0.0106657, 0, 0.999943, 1.96667, 1, 0, -0.004062, 0, 0.999992, 2, 1, 0, 0, 0, 1)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_redmj"]
+_data = {
+&"close": SubResource("Animation_5oaj6"),
+&"open": SubResource("Animation_f30eh"),
+&"open-and-close": SubResource("Animation_r2dbu")
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w7h0l"]
+albedo_color = Color(0.101961, 0.0666667, 0.0117647, 1)
+
+[node name="Level-7" type="Node3D"]
+script = ExtResource("1_fdcxf")
+
+[node name="PhysicsDropZone" type="Node3D" parent="."]
+unique_name_in_owner = true
+
+[node name="Level" type="Node3D" parent="."]
+
+[node name="World" type="Node3D" parent="Level"]
+transform = Transform3D(-0.655348, 0, -0.755328, 0, 1, 0, 0.755328, 0, -0.655348, 12.1407, 0.0146356, 26.2504)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Level/World"]
+environment = ExtResource("4_viqgn")
+
+[node name="Sun" type="DirectionalLight3D" parent="Level/World"]
+transform = Transform3D(-0.370729, -0.922055, -0.111236, 0.473157, -0.290574, 0.831678, -0.799176, 0.255695, 0.544001, -12.9485, 0.369804, 42.6796)
+light_energy = 11.333
+shadow_enabled = true
+shadow_blur = 2.824
+
+[node name="Objects" type="Node3D" parent="Level"]
+
+[node name="InfoOnScreen" type="CSGMesh3D" parent="Level/Objects"]
+unique_name_in_owner = true
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -10.5137, 1.7378, 1.45804)
+mesh = SubResource("TextMesh_o13o7")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Level/Objects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.802, 1.36165, 2.53218)
+use_collision = true
+size = Vector3(0.523926, 3.35547, 4.49707)
+
+[node name="crypt-door" type="Node3D" parent="Level/Objects"]
+transform = Transform3D(0, 0, 3, 0, 3, 0, -3, 0, 0, -0.110008, 4.76837e-07, 21.6132)
+
+[node name="crypt_door" type="Node3D" parent="Level/Objects/crypt-door"]
+
+[node name="door" type="MeshInstance3D" parent="Level/Objects/crypt-door/crypt_door"]
+transform = Transform3D(-0.173648, 0, -0.984808, 0, 1, 0, 0.984808, 0, -0.173648, 0, 0, 0)
+mesh = SubResource("ArrayMesh_rkpue")
+skeleton = NodePath("")
+
+[node name="crypt-door-animation" type="AnimationPlayer" parent="Level/Objects/crypt-door"]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_redmj")
+}
+
+[node name="Ground" type="Node3D" parent="Level"]
+
+[node name="TestObjects" type="Node3D" parent="Level/Ground"]
+
+[node name="GridMap" type="GridMap" parent="Level/Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -2.5)
+mesh_library = ExtResource("13_qa0xj")
+cell_size = Vector3(3, 2, 3)
+cell_scale = 3.0
+data = {
+"cells": PackedInt32Array(65534, 3, 7, 3, 65535, 0, 2, 65535, 0, 1, 65535, 0, 0, 65535, 5, 65535, 65535, 0, 65534, 65535, 0, 65534, 65533, 0, 0, 65533, 0, 1, 65533, 0, 65533, 65533, 6, 2, 65533, 6, 65531, 3, 6, 65533, 3, 6, 65532, 3, 0, 65533, 65535, 6, 65532, 65535, 5, 65532, 65533, 6, 65531, 65533, 6, 65531, 65535, 6, 3, 65533, 6, 4, 65533, 6, 65535, 3, 6, 1, 3, 6, 0, 3, 0, 65533, 5, 0, 65534, 5, 0, 65535, 5, 0, 0, 5, 0, 65532, 5, 0, 65531, 5, 0, 1, 5, 0, 1, 4, 1441792)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="ground" type="CSGBox3D" parent="Level/Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 6.5)
+material_override = ExtResource("14_4hmur")
+use_collision = true
+size = Vector3(30, 1, 43)
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="wall" type="CSGBox3D" parent="Level/Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.84988, 28.3286)
+material_override = SubResource("StandardMaterial3D_w7h0l")
+use_collision = true
+size = Vector3(30, 9.69977, 1.34277)
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="wall2" type="CSGBox3D" parent="Level/Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -14.5)
+material_override = SubResource("StandardMaterial3D_w7h0l")
+use_collision = true
+size = Vector3(30, 4, 1)
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="wall3" type="CSGBox3D" parent="Level/Ground"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 14.5, 1, 6.5)
+material_override = SubResource("StandardMaterial3D_w7h0l")
+use_collision = true
+size = Vector3(43, 4, 1)
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="wall4" type="CSGBox3D" parent="Level/Ground"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -14.5, 1, 6.5)
+material_override = SubResource("StandardMaterial3D_w7h0l")
+use_collision = true
+size = Vector3(43, 4, 1)
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="altar-stone" parent="Level/Ground" instance=ExtResource("5_5gnce")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 4.32424, -9.53674e-07, 25.3062)
+
+[node name="altar-wood" parent="Level/Ground" instance=ExtResource("6_jecc8")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 11.4095, -9.53674e-07, 25.6956)
+
+[node name="character-digger" parent="Level/Ground" instance=ExtResource("7_o13o7")]
+transform = Transform3D(-1.31134e-07, 0, 3, 0, 3, 0, -3, 0, -1.31134e-07, 5.92621, 0.00951099, 11.2769)
+
+[node name="crypt-small" parent="Level/Ground" instance=ExtResource("8_0otju")]
+transform = Transform3D(-1.31134e-07, 0, 3, 0, 3, 0, -3, 0, -1.31134e-07, -2, 0, 21)
+
+[node name="crypt-small-entrance-alternative" parent="Level/Ground" instance=ExtResource("9_gekpk")]
+transform = Transform3D(-1.31134e-07, 0, 3, 0, 3, 0, -3, 0, -1.31134e-07, -0.327855, -9.53674e-07, 20.985)
+
+[node name="crypt-small-roof" parent="Level/Ground" instance=ExtResource("10_j8mf7")]
+transform = Transform3D(-1.31134e-07, 0, 3, 0, 3, 0, -3, 0, -1.31134e-07, -2, 3, 21.1063)
+
+[node name="character-zombie" parent="Level/Ground" instance=ExtResource("11_tbwt4")]
+transform = Transform3D(-1.09278e-07, 0, 2.5, 0, 2.5, 0, -2.5, 0, -1.09278e-07, -1.63897, 4.76837e-07, 20.9556)
+
+[node name="pine-crooked" parent="Level/Ground" instance=ExtResource("12_xe7sg")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -0.167273, 0, 25.5404)
+
+[node name="pine-fall-crooked" parent="Level/Ground" instance=ExtResource("13_bjfkq")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -5.89105, 0, 17.9153)
+
+[node name="pine" parent="Level/Ground" instance=ExtResource("14_3jvup")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -1.48699, 0, 16.9777)
+
+[node name="pine2" parent="Level/Ground" instance=ExtResource("14_3jvup")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -5.28271, 0, 24.9112)
+
+[node name="pine3" parent="Level/Ground" instance=ExtResource("14_3jvup")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -9.12737, 0, 21.7218)
+
+[node name="Player" parent="." instance=ExtResource("17_jecc8")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0109944, 4.76837e-07, -0.00030303)
+
+[node name="SpookEvent1" type="Node3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.2393, 0, 0)
+script = ExtResource("17_0otju")
+
+[node name="Switch" parent="SpookEvent1" instance=ExtResource("18_gekpk")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 10.7412, 1.14489, -3.6706)
+type = 1
+
+[node name="MonsterCutout" parent="SpookEvent1" instance=ExtResource("3_jecc8")]
+unique_name_in_owner = true
+transform = Transform3D(-2.98023e-08, 0, 0.999999, 0, 1, 0, -0.999999, 0, -2.98023e-08, -0.349125, 0, 0.0595264)
+
+[node name="OnScreenTrigger" parent="SpookEvent1" instance=ExtResource("18_o13o7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.704075, 1.37229, -0.203705)
+activated = true
+slowReactTime = 4.0
+
+[node name="SpookEvent2" type="Node3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.63829, 0, 9.52173)
+script = ExtResource("17_0otju")
+
+[node name="Switch2" parent="SpookEvent2" instance=ExtResource("18_gekpk")]
+transform = Transform3D(-1.31134e-07, 0, 3, 0, 3, 0, -3, 0, -1.31134e-07, 2.29099, 1.14489, 3.32444)
+type = 1
+
+[node name="MonsterCutout2" parent="SpookEvent2" instance=ExtResource("3_jecc8")]
+transform = Transform3D(-2.98023e-08, 0, 0.999999, 0, 1, 0, -0.999999, 0, -2.98023e-08, -0.349125, 0, 0.0595264)
+direction = Vector3(0, -3, 0)
+
+[node name="OnScreenTrigger3" parent="SpookEvent2" instance=ExtResource("18_o13o7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.823837, 1.49925, 0.130545)
+activated = true
+slowReactTime = 4.0
+
+[connection signal="switchOn" from="SpookEvent1/Switch" to="." method="_on_switch_switch_on"]
+[connection signal="switchOn" from="SpookEvent2/Switch2" to="." method="_on_switch_2_switch_on"]

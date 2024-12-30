@@ -115,6 +115,10 @@ jump={
 ]
 }
 
+[layer_names]
+
+3d_physics/layer_2="SightLines"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

@@ -100,7 +100,7 @@ offset_bottom = 40.0
 [node name="Level7" type="Button" parent="TabContainer/Level 7-x/VFlowContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
-text = "Level 7 - Level Change?"
+text = "Level 7 - Look trigger"
 
 [node name="Experiments" type="Control" parent="TabContainer"]
 visible = false

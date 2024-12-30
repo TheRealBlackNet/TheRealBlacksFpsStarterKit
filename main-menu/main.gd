@@ -48,7 +48,8 @@ func _on_level_6aui_button_up():
 		"res://level-6-gui/UIOnly.tscn")    
 
 func _on_level_7_button_up() -> void:
-	pass # Replace with function body.
+	get_tree().change_scene_to_file(\
+		"res://level-7-looktrigger/level-7.tscn")   
 
 
 func _on_exp_1_radar_2d_button_up() -> void:

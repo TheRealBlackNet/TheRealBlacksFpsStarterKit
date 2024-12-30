@@ -12,4 +12,3 @@ func switchedOn():
 
 func switchedOff():
 	pass
-

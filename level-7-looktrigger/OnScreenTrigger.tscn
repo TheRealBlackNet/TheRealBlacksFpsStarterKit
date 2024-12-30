@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=3 uid="uid://bdbgrg04ilmlj"]
+
+[ext_resource type="Script" path="res://level-7-looktrigger/on_screen_trigger.gd" id="1_gqeem"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_gqeem"]
+radius = 0.01
+
+[node name="OnScreenTrigger" type="Node3D"]
+script = ExtResource("1_gqeem")
+slowReactTime = 10.0
+quickReactTime = 2.0
+
+[node name="OnScreen" type="VisibleOnScreenNotifier3D" parent="."]
+unique_name_in_owner = true
+aabb = AABB(-0.5, -0.5, -0.5, 1, 1, 1)
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+unique_name_in_owner = true
+target_position = Vector3(0, 0, -500)
+collision_mask = 3
+
+[node name="DEBUG_RAY" type="CSGTorus3D" parent="RayCast3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+visible = false
+inner_radius = 0.291164
+outer_radius = 0.37182
+sides = 16
+ring_sides = 7
+
+[node name="SpringArm3D" type="SpringArm3D" parent="."]
+unique_name_in_owner = true
+collision_mask = 3
+shape = SubResource("SphereShape3D_gqeem")
+spring_length = -20.0
+
+[node name="DEBUG_ARM" type="CSGCylinder3D" parent="SpringArm3D"]
+visible = false
+radius = 0.161203
+height = 0.123805
+sides = 16
+
+[node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+
+[connection signal="screen_entered" from="OnScreen" to="." method="_on_screen_screen_entered"]
+[connection signal="screen_exited" from="OnScreen" to="." method="_on_screen_screen_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

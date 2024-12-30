@@ -1,0 +1,120 @@
+[gd_scene load_steps=11 format=3 uid="uid://dtt70magy6uid"]
+
+[ext_resource type="Script" path="res://level-7-looktrigger/player5.gd" id="1_g0tgw"]
+[ext_resource type="PackedScene" uid="uid://dic4d3maslmet" path="res://level-4-player-interaction-useables/grabAndUser.tscn" id="2_g5pwj"]
+[ext_resource type="Script" path="res://level-1-basicmovement/WalkingSounds.gd" id="3_cnsyf"]
+[ext_resource type="Texture2D" uid="uid://bb5bwowvljiof" path="res://level-4-player-interaction-useables/crosshair.png" id="4_vo4tu"]
+[ext_resource type="PackedScene" uid="uid://ct0wvq16yljm2" path="res://level-6-gui/KeyPad.tscn" id="5_h8n0l"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ri6eu"]
+radius = 0.4
+height = 1.8
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hmllw"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m4qdk"]
+albedo_color = Color(0.368627, 0.368627, 0.368627, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kkkxl"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_67l3r"]
+albedo_color = Color(0.380392, 0.380392, 0.380392, 1)
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_g0tgw")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.69307, -0.0758755)
+
+[node name="GrabAndUser" parent="Camera3D" node_paths=PackedStringArray("handPos") instance=ExtResource("2_g5pwj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000332177, 1.19209e-07, -0.00154315)
+handPos = NodePath("../../HoldingPos")
+
+[node name="FACE_COLLIDER" type="CSGCylinder3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0.123)
+layers = 0
+use_collision = true
+collision_layer = 2
+collision_mask = 2
+radius = 0.223228
+height = 1.70456
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.91, 0)
+shape = SubResource("CapsuleShape3D_ri6eu")
+
+[node name="HoldingPos" type="Node3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.958499, -0.465973)
+
+[node name="BodyShapes" type="Node3D" parent="."]
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="BodyShapes"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 1.43, 0.448)
+material_overlay = SubResource("StandardMaterial3D_hmllw")
+radius = 0.106608
+height = 0.479757
+
+[node name="Head" type="CSGSphere3D" parent="BodyShapes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.68414, 0.199866)
+radius = 0.208324
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="BodyShapes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.172574, 1.11415, -0.087456)
+radius = 0.106599
+material = SubResource("StandardMaterial3D_m4qdk")
+
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="BodyShapes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.173321, 1.11415, -0.087456)
+radius = 0.106599
+material = SubResource("StandardMaterial3D_m4qdk")
+
+[node name="CSGSphere3D3" type="CSGSphere3D" parent="BodyShapes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.172574, 1.14511, -0.00526033)
+radius = 0.057
+radial_segments = 10
+material = SubResource("StandardMaterial3D_m4qdk")
+
+[node name="CSGSphere3D4" type="CSGSphere3D" parent="BodyShapes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.173321, 1.14511, -0.00526033)
+radius = 0.057
+radial_segments = 10
+material = SubResource("StandardMaterial3D_m4qdk")
+
+[node name="Backpack" type="CSGBox3D" parent="BodyShapes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.49012e-08, 1.17786, 0.435217)
+size = Vector3(0.4, 0.518848, 0.190527)
+
+[node name="Backpack2" type="CSGBox3D" parent="BodyShapes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00186104, 1.33541, 0.526229)
+material_override = SubResource("StandardMaterial3D_kkkxl")
+size = Vector3(0.408862, 0.174878, 0.0410889)
+
+[node name="Body" type="CSGCylinder3D" parent="BodyShapes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.764203, 0.185366)
+material_override = SubResource("StandardMaterial3D_67l3r")
+radius = 0.177617
+height = 1.43133
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+unique_name_in_owner = true
+volume_db = -20.0
+max_db = 1.0
+script = ExtResource("3_cnsyf")
+
+[node name="Crosshair" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+texture = ExtResource("4_vo4tu")
+
+[node name="MenuMover" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="KeyPadMenue" parent="MenuMover" instance=ExtResource("5_h8n0l")]
+unique_name_in_owner = true
+position = Vector2(-100, -175)
+
+[connection signal="finished" from="AudioStreamPlayer3D" to="AudioStreamPlayer3D" method="_on_AudioStreamPlayer_finished"]

@@ -34,7 +34,9 @@ func letGo():
 		self.isPressed = false
 		setfinalColor()
 		Audio.force_sound("/kenney_CC/metalClick.ogg", 0.0, -5)
-		switchAble.switchedOff()
+		if switchAble != null:
+			switchAble.switchedOff()
+		switchOff.emit(self)
 
 func tryUse() -> bool:
 	var is_used_now = false
@@ -48,6 +50,7 @@ func tryUse() -> bool:
 			else:
 				if type == ButtonType.BUTTON:
 					isWaiting = true
+					switchOn.emit(self)
 				elif type == ButtonType.HOLD_BUTTON:
 					allOff()
 					self.isPressed = true
@@ -63,10 +66,15 @@ func tryUse() -> bool:
 				if type == ButtonType.SWITCH:
 					if self.isPressed:
 						switchAble.switchedOn()
+						switchOn.emit(self)
 					else:
 						switchAble.switchedOff()
-				else:
+						switchOff.emit(self)
+				elif switchAble != null:
 					switchAble.switchedOn()
+					switchOn.emit(self)
+				else:
+					switchOn.emit(self)
 		else:
 			allOff()
 			black.show()
