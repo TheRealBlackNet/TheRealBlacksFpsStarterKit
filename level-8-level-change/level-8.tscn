@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://d30gvync5np5w"]
+
+[ext_resource type="Script" path="res://level-8-level-change/level-8.gd" id="1_j50qr"]
+[ext_resource type="PackedScene" uid="uid://fcln7gu3ushi" path="res://level-8-level-change/level_8_map_space.tscn" id="2_vxe8r"]
+[ext_resource type="PackedScene" uid="uid://d0sv11f5bco3l" path="res://level-8-level-change/Level-8-House1-Map.tscn" id="4_kqihi"]
+[ext_resource type="PackedScene" uid="uid://dmv04l827dr0o" path="res://level-6-gui/player4.tscn" id="15_irbpg"]
+
+[node name="Level-8" type="Node3D"]
+script = ExtResource("1_j50qr")
+
+[node name="Level-OutDoors" parent="." instance=ExtResource("2_vxe8r")]
+
+[node name="Level-8-house1-map" parent="." instance=ExtResource("4_kqihi")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -21.6393, 1.5, 8.80458)
+
+[node name="Player" parent="." instance=ExtResource("15_irbpg")]
+transform = Transform3D(-0.017976, 0, -0.999838, 0, 1, 0, 0.999838, 0, -0.017976, 7.46069, 0, 0)

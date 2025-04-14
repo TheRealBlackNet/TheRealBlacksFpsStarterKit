@@ -19,6 +19,17 @@ func _on_video_stream_player_finished():
 	player.play()
 
 
+
+func _on_exp_1_radar_2d_button_up() -> void:
+	get_tree().change_scene_to_file(\
+		"res://Experiments/Exp-Radar2D.tscn") 
+
+func _on_exp_2_shaders_button_up() -> void:
+	get_tree().change_scene_to_file(\
+		"res://Experiments/level-exp.tscn") 
+
+
+
 func _on_level_1_button_up():
 	get_tree().change_scene_to_file(\
 		"res://level-1-basicmovement/level-1.tscn")
@@ -51,7 +62,10 @@ func _on_level_7_button_up() -> void:
 	get_tree().change_scene_to_file(\
 		"res://level-7-looktrigger/level-7.tscn")   
 
-
-func _on_exp_1_radar_2d_button_up() -> void:
+func _on_level_8_button_up() -> void:
 	get_tree().change_scene_to_file(\
-		"res://Experiments/Exp-Radar2D.tscn") 
+		"res://level-8-level-change/level-8.tscn")   
+
+func _on_level_9_button_up() -> void:
+	get_tree().change_scene_to_file(\
+		"res://level-9-push-pull/level-9.tscn")  

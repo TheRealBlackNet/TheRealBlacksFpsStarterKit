@@ -29,3 +29,4 @@ shape = SubResource("CircleShape2D_tb45n")
 
 [connection signal="timeout" from="resetEchoTimer" to="." method="_on_reset_echo_timer_timeout"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -30,6 +30,10 @@ unique_name_in_owner = true
 position = Vector2(585, 286)
 motion_mode = 1
 
+[node name="RayCast2D" type="RayCast2D" parent="Char"]
+target_position = Vector2(2, -203)
+collide_with_areas = true
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Char"]
 shape = SubResource("CapsuleShape2D_kidhi")
 
@@ -78,7 +82,7 @@ position = Vector2(1071, 60)
 position = Vector2(1122, 25)
 
 [node name="EchoElement11" parent="SonarElements" instance=ExtResource("3_1m581")]
-position = Vector2(621, 116)
+position = Vector2(631, 112)
 
 [node name="EchoElement12" parent="SonarElements" instance=ExtResource("3_1m581")]
 position = Vector2(484, 47)
@@ -192,3 +196,4 @@ position = Vector2(68, 79)
 position = Vector2(34, 26)
 
 [connection signal="button_up" from="Control/Button" to="." method="_on_button_button_up"]
+[connection signal="child_entered_tree" from="Char/RayCast2D" to="." method="_on_ray_cast_2d_child_entered_tree"]

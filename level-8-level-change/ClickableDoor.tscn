@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://b5rc5b2w3p8sg"]
+
+[ext_resource type="PackedScene" uid="uid://dbsy5bto28fix" path="res://kenney_CC/space-station-kit/door-double-closed.glb" id="1_8y5bx"]
+[ext_resource type="Script" path="res://level-8-level-change/clickable_door.gd" id="1_oh8wk"]
+[ext_resource type="Script" path="res://level-8-level-change/clickable_door_area.gd" id="3_0g5ks"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oh8wk"]
+size = Vector3(0.941895, 0.882324, 0.145703)
+
+[node name="ClickableDoor" type="Node3D"]
+script = ExtResource("1_oh8wk")
+
+[node name="door-double-closed2" parent="." instance=ExtResource("1_8y5bx")]
+transform = Transform3D(1.563, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 0.0391864, 0.101871)
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.492377, 0)
+script = ExtResource("3_0g5ks")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00148344, -0.0183105, 0.104297)
+shape = SubResource("BoxShape3D_oh8wk")

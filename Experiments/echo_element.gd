@@ -14,3 +14,7 @@ func _on_reset_echo_timer_timeout() -> void:
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	sprite_2d.show()
 	reset_echo_timer.start()
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	print("Test: " + body.name)

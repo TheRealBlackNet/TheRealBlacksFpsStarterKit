@@ -32,9 +32,10 @@ offset_left = 30.0
 offset_top = 86.0
 offset_right = 480.0
 offset_bottom = 612.0
-current_tab = 0
+current_tab = 1
 
 [node name="Level 1-6" type="Control" parent="TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -88,19 +89,34 @@ theme_override_font_sizes/font_size = 25
 text = "close game"
 
 [node name="Level 7-x" type="Control" parent="TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
 [node name="VFlowContainer" type="VFlowContainer" parent="TabContainer/Level 7-x"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 449.0
+offset_bottom = 495.0
 
 [node name="Level7" type="Button" parent="TabContainer/Level 7-x/VFlowContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
 text = "Level 7 - Look trigger"
+
+[node name="Level8" type="Button" parent="TabContainer/Level 7-x/VFlowContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Level 8 - level change  (fail X)"
+
+[node name="Level9" type="Button" parent="TabContainer/Level 7-x/VFlowContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Level 9 - push\\pull ?"
+
+[node name="EndGame" type="Button" parent="TabContainer/Level 7-x/VFlowContainer"]
+custom_minimum_size = Vector2(450, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "close game"
 
 [node name="Experiments" type="Control" parent="TabContainer"]
 visible = false
@@ -119,6 +135,11 @@ theme_override_constants/v_separation = 10
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
 text = "Radar\\Echo 2D"
+
+[node name="Exp2-Shaders" type="Button" parent="TabContainer/Experiments/VFlowContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Shader Tests"
 
 [node name="EndGame" type="Button" parent="TabContainer/Experiments/VFlowContainer"]
 custom_minimum_size = Vector2(450, 0)
@@ -162,6 +183,10 @@ texture = ExtResource("3_36nrl")
 [connection signal="button_up" from="TabContainer/Level 1-6/VFlowContainer/Level6A-UI" to="." method="_on_level_6aui_button_up"]
 [connection signal="button_up" from="TabContainer/Level 1-6/VFlowContainer/EndGame" to="." method="_on_end_game_button_up"]
 [connection signal="button_up" from="TabContainer/Level 7-x/VFlowContainer/Level7" to="." method="_on_level_7_button_up"]
+[connection signal="button_up" from="TabContainer/Level 7-x/VFlowContainer/Level8" to="." method="_on_level_8_button_up"]
+[connection signal="button_up" from="TabContainer/Level 7-x/VFlowContainer/Level9" to="." method="_on_level_9_button_up"]
+[connection signal="button_up" from="TabContainer/Level 7-x/VFlowContainer/EndGame" to="." method="_on_end_game_button_up"]
 [connection signal="button_up" from="TabContainer/Experiments/VFlowContainer/Exp1-Radar2D" to="." method="_on_exp_1_radar_2d_button_up"]
+[connection signal="button_up" from="TabContainer/Experiments/VFlowContainer/Exp2-Shaders" to="." method="_on_exp_2_shaders_button_up"]
 [connection signal="button_up" from="TabContainer/Experiments/VFlowContainer/EndGame" to="." method="_on_end_game_button_up"]
 [connection signal="finished" from="AspectRatioContainer/SplashPlayer" to="." method="_on_video_stream_player_finished"]

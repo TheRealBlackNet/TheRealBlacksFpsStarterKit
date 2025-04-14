@@ -123,7 +123,7 @@ func _process(delta: float) -> void:
 				
 				if lenght <= instantBound:
 					triggered = true
-					print("START INSTANT")
+					#print("START INSTANT")
 					timer.stop()
 					_on_timer_timeout()
 				elif lenght <= innerBound \
@@ -131,7 +131,7 @@ func _process(delta: float) -> void:
 					if timer.time_left > quickReactTime \
 						or timer.time_left == 0:
 						fastStart = true
-						print("START FAST")
+						#print("START FAST")
 						timer.stop()
 						timer.one_shot = true
 						timer.start(quickReactTime)
@@ -139,15 +139,15 @@ func _process(delta: float) -> void:
 						and !slowStart:
 					if timer.time_left > slowReactTime \
 						or timer.time_left == 0:
-						print("START SLOW")
+						#print("START SLOW")
 						slowStart = true
 						timer.stop()
 						timer.one_shot = true
 						timer.start(slowReactTime)
 						
-				print("TEST "\
-					+ str(timer.time_left)\
-					+ " OUT: " + str(slowStart)\
-					+ " IN: " + str(fastStart)\
-					+ " T: " + str(triggered)\
-					)
+				#print("TEST "\
+				#	+ str(timer.time_left)\
+				#	+ " OUT: " + str(slowStart)\
+				#	+ " IN: " + str(fastStart)\
+				#	+ " T: " + str(triggered)\
+				#	)

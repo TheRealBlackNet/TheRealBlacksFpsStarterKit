@@ -37,3 +37,7 @@ func makeEcho() -> void:
 func resetEcho():
 	var shape:CircleShape2D = echo.shape
 	shape.radius = 10
+
+
+func _on_ray_cast_2d_child_entered_tree(node: Node) -> void:
+	print("What node: " + node.name)
